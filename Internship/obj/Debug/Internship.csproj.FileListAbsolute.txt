@@ -190,5 +190,5 @@ C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\bin\Microsoft.AI.We
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.csprojResolveAssemblyReference.cache
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.dll
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.pdb
-C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.Migrations._0.resources
+C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.Migrations.ChangedTableNames.resources
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.csproj.GenerateResource.Cache

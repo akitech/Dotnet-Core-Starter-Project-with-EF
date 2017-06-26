@@ -5,14 +5,14 @@ namespace Internship.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Internship.Models.InternshipDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Internship.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Internship.Models.InternshipDbContext context)
+        protected override void Seed(Internship.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

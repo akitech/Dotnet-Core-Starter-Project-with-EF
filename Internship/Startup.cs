@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Internship.Models;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Internship.Startup))]
@@ -9,6 +10,10 @@ namespace Internship
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+           
+
         }
+
+
     }
 }
