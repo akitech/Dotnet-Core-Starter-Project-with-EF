@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Internship.Models
 {
-    public class Internship
+    public class Application
     {
         [Key]
         public int FormId { get; set; }

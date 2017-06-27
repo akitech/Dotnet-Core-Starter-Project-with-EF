@@ -9,7 +9,7 @@ namespace Internship.Models
 {
     public class IntContext : DbContext
     {
-        DbSet<Internship> Internships { get; set; }
+        DbSet<Application> Application { get; set; }
         DbSet<CPTform> CPTform { get; set; }
         DbSet<Employer> Employer { get; set; }
         DbSet<User> User { get; set; }
