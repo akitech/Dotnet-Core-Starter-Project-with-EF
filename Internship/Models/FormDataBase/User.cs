@@ -10,7 +10,6 @@ namespace Internship.Models
     {
         public int Id { get; set; }
         public int WID { get; set; }
-        public string UserType { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
