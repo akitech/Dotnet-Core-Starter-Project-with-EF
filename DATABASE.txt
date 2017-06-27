@@ -1,6 +1,6 @@
-USER
-Table 
 
+  FieldName > TableName
+  
 ?	Dean enum >User
 ?	Int wId > User
 ?	String FirstName >User
