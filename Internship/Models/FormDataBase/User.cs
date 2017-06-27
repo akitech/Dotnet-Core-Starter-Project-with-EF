@@ -19,5 +19,22 @@ namespace Internship.Models
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        public string Email { get; set; }
+
+        [Display(Name = "Cell Number")]
+        public int CellNumber { get; set; }
+
+        [Display(Name = "Work Number")]
+        public int WorkNumber { get; set; }
+
+        [Display(Name = "Home Number")]
+        public int HomeNumber { get; set; }
+
+        [Display(Name = "Present Address")]
+        public string PresentAddress { get; set; }
+
+        [Display(Name = "Permanent Address")]
+        public string PermanentAddress { get; set; }
     }
 }
