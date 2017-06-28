@@ -192,3 +192,8 @@ C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internshi
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.pdb
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.Migrations.ChangedTableNames.resources
 C:\Users\Nicholas\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.csproj.GenerateResource.Cache
+C:\Users\Kari\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.csprojResolveAssemblyReference.cache
+C:\Users\Kari\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.Migrations.ChangedTableNames.resources
+C:\Users\Kari\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.csproj.GenerateResource.Cache
+C:\Users\Kari\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.dll
+C:\Users\Kari\Documents\GitHub\CPTRequestForm\Internship\obj\Debug\Internship.pdb
