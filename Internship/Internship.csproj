@@ -200,9 +200,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\CPTform.cs" />
+    <Compile Include="Models\EmployementAgreement.cs" />
+    <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\InternshipDbContext.cs" />
+    <Compile Include="Models\IntContext.cs" />
+    <Compile Include="Models\InternshipModels.cs" />
+    <Compile Include="Models\LearningObjective.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
