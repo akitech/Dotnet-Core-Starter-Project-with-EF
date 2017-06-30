@@ -31,7 +31,7 @@ namespace Internship.Models
         public bool isSignedByAcademicAdvisor { get; set; }
         public DateTime dataSignedByAcademicAdvisor { get; set; }
         public bool isSignedBySupervisorUponCompletion { get; set; }
-        public DataType dataSupervisorSignedUponCompletion { get; set; }
+        public DateTime dataSupervisorSignedUponCompletion { get; set; }
 
     }
 }
