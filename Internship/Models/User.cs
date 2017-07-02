@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,33 +9,30 @@ namespace Internship.Models
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
-        public int WID { get; set; }
+        [ForeignKey("CPTform")]
+        public int CPTformId { get; set; }
+        [ForeignKey("EmploymentAgreement")]
+        public int EmploymentAgreementId { get; set; }
+        [ForeignKey("Employer")]
+        public int EmployerId { get; set; }
+        [ForeignKey("Application")]
+        public int ApplicationId { get; set; }
+        [ForeignKey("LearningObjective")]
+        public int LearningObjectiveId { get; set; }
+        public string studentFirstNameerty { get; set; }
+        public string studentMiddleName { get; set; }
+        public string studentLastName { get; set; }
+        public int wNum { get; set; }
+        public string studentEmail { get; set; }
+        public int studentCellPhone { get; set; }
+        public int studentWorkPhone { get; set; }
+        public string studentPresentAddress { get; set; }
+        public string studentPermanentAddress { get; set; }
+        public bool isStudentInternational { get; set; }
+        public enum userType { Type1, Type2 }
 
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
 
-        [Display(Name = "Middle")]
-        public string MiddleName { get; set; }
-
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        public string Email { get; set; }
-
-        [Display(Name = "Cell Number")]
-        public int CellNumber { get; set; }
-
-        [Display(Name = "Work Number")]
-        public int WorkNumber { get; set; }
-
-        [Display(Name = "Home Number")]
-        public int HomeNumber { get; set; }
-
-        [Display(Name = "Present Address")]
-        public string PresentAddress { get; set; }
-
-        [Display(Name = "Permanent Address")]
-        public string PermanentAddress { get; set; }
     }
 }

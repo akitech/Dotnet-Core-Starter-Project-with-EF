@@ -206,7 +206,6 @@
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IntContext.cs" />
-    <Compile Include="Models\InternshipModels.cs" />
     <Compile Include="Models\LearningObjective.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs" />
