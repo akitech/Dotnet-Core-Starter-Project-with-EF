@@ -4,23 +4,26 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using Internship.Models;
+
 
 
 namespace Internship.Models
 {
     public class Application
     {
-        [Key]
+        [Key, ForeignKey("ApplicationId")]
         public int Id { get; set; }
+        public virtual Application ApplicationId { get; set; }
         [ForeignKey("CPTform")]
         public virtual CPTform CPTformId { get; set; }
-        [ForeignKey("EmployementAgreement")]
+        [ForeignKey("EmployementAgreementId")]
         public virtual EmployementAgreement EmploymentAgreementId { get; set; }
-        [ForeignKey("Employer")]
+        [ForeignKey("EmployerId")]
         public virtual Employer EmployerId { get; set; }
-        [ForeignKey("LearningObjective")]
+        [ForeignKey("LearningObjectiveId")]
         public virtual LearningObjective LearningObjectiveId { get; set; }
-        [ForeignKey("User")]
+        [ForeignKey("UserId")]
         public virtual User UserId { get; set; }
         public string Major { get; set; }
         public string Degree { get; set; }

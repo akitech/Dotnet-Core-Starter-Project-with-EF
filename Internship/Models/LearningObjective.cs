@@ -9,17 +9,18 @@ namespace Internship.Models
 {
     public class LearningObjective
     {
-        [Key]
+        [Key, ForeignKey("LearningObjectiveId")]
         public int Id { get; set; }
-        [ForeignKey("CPTform")]
+        public virtual LearningObjective LearningObjectiveId { get; set; }
+        [ForeignKey("CPTformId")]
         public virtual CPTform CPTformId { get; set; }
-        [ForeignKey("EmployementAgreement")]
+        [ForeignKey("EmployementAgreementId")]
         public virtual EmployementAgreement EmployementAgreementId { get; set; }
-        [ForeignKey("Employer")]
+        [ForeignKey("EmployerId")]
         public virtual Employer EmployerId { get; set; }
-        [ForeignKey("Application")]
+        [ForeignKey("ApplicationId")]
         public virtual Application ApplicationId { get; set; }
-        [ForeignKey("User")]
+        [ForeignKey("UserId")]
         public virtual User UserId { get; set; }
         public string measureableLearningObjective1 { get; set; }
         public double supervisorsRatingOfLearningObjective1 { get; set; } //does this really have to be a double? or can it be something smaller, this comment goes for all the doubles in this class

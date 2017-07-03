@@ -9,17 +9,18 @@ namespace Internship.Models
 {
     public class EmployementAgreement
     {
-        [Key]
+        [Key, ForeignKey("EmployementAgreementId")]
         public int Id { get; set; }
-        [ForeignKey("CPTform")]
+        public virtual EmployementAgreement EmployementAgreementId { get; set; }
+        [ForeignKey("CPTformId")]
         public virtual CPTform CPTformId { get; set; }
-        [ForeignKey("Application")]
+        [ForeignKey("ApplicationId")]
         public virtual Application ApplicationId { get; set; }
-        [ForeignKey("Employer")]
+        [ForeignKey("EmployerId")]
         public virtual Employer EmployerId { get; set; }
-        [ForeignKey("LearningObjective")]
+        [ForeignKey("LearningObjectiveId")]
         public virtual LearningObjective LearningObjectiveId { get; set; }
-        [ForeignKey("User")]
+        [ForeignKey("UserId")]
         public virtual User UserId { get; set; }
         public double hoursPerWeek { get; set; }
         public string descriptionOfEmployment { get; set; }
