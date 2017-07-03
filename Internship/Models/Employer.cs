@@ -13,8 +13,8 @@ namespace Internship.Models
         public int Id { get; set; }
         [ForeignKey("CPTform")]
         public int CPTformId { get; set; }
-        [ForeignKey("EmploymentAgreement")]
-        public int EmploymentAgreementId { get; set; }
+        [ForeignKey("EmployementAgreement")]
+        public int EmployementAgreementId { get; set; }
         [ForeignKey("LearningObjective")]
         public int LearningObjectiveId { get; set; }
         [ForeignKey("Application")]

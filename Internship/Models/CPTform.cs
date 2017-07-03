@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +9,50 @@ namespace Internship.Models
 {
     public class CPTform
     {
-        public int CPTformId { get; set; }
+        [Key]
+        public int Id { get; set; }
+        [ForeignKey("Application")]
+        public virtual Application ApplicationId { get; set; }
+        [ForeignKey("EmployementAgreement")]
+        public virtual EmployementAgreement EmploymentAgreementId { get; set; }
+        [ForeignKey("Employer")]
+        public virtual Employer EmployerId { get; set; }
+        [ForeignKey("LearningObjective")]
+        public virtual LearningObjective LearningObjectiveId { get; set; }
+        [ForeignKey("User")]
+        public virtual User UserId { get; set; }
+        public enum CptRecommendationType
+        {
+            mandatoryForGraduation,
+            employmentWillResultInAcademicCredit
+        }
+        public string CourseName { get; set; }
+
+        public string AcademicAdvisorName { get; set; }
+
+        public int AcademicAdvisorTelephone { get; set; }
+
+        public string AcademicAdvisorEmail { get; set; }
+
+        public bool IsEmployedCurrentlyOnCampus { get; set; }
+
+        public bool IsEmployedCurrentlyOffCampus { get; set; }
+
+        public bool IsRequestForSummerEmployment { get; set; }
+        public enum IsEligibleAndIntendToEnrollFTFallSem
+        {
+            yes,
+            no,
+            notApplicable
+        }
+        public bool HasPreviousCptAuthorization1 { get; set; }
+        public DateTime BeginningEmploymentDateOfPreviousCptAuthorization1 { get; set; }
+        public DateTime EndingEmploymentDateOfPreviousCptAuthorization1 { get; set; }
+        public bool WasPreviousCptAuthorizationPartTime1 { get; set; }
+        public bool HasPreviousCptAuthorization2 { get; set; }
+        public DateTime BeginningEmploymentDateOfPreviousCptAuthorization2 { get; set; }
+        public DateTime EndingEmploymentDateOfPreviousCptAuthorization2 { get; set; }
+        public bool WasPreviousCptAuthorizationPartTime2 { get; set; }
     }
+
 }

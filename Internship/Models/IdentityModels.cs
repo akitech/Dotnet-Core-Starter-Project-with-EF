@@ -25,7 +25,10 @@ namespace Internship.Models
             return userIdentity;
         }
         [StringLength(50)]
-        public string Degree { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -56,6 +59,13 @@ namespace Internship.Models
 
 
     }
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole() : base() { }
+        public ApplicationRole(string name) : base(name) { }
+        public string Description { get; set; }
 
-   
+    }
+
+
 }

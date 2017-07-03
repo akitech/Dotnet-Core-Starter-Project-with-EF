@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+
 namespace Internship.Models
 {
     public class Application
@@ -12,15 +13,15 @@ namespace Internship.Models
         [Key]
         public int Id { get; set; }
         [ForeignKey("CPTform")]
-        public int CPTformId { get; set; }
-        [ForeignKey("EmploymentAgreement")]
-        public int EmploymentAgreementId { get; set; }
+        public virtual CPTform CPTformId { get; set; }
+        [ForeignKey("EmployementAgreement")]
+        public virtual EmployementAgreement EmploymentAgreementId { get; set; }
         [ForeignKey("Employer")]
-        public int EmployerId { get; set; }
-        [ForeignKey("LearningObjectives")]
-        public int LearningObjectivesId { get; set; }
+        public virtual Employer EmployerId { get; set; }
+        [ForeignKey("LearningObjective")]
+        public virtual LearningObjective LearningObjectiveId { get; set; }
         [ForeignKey("User")]
-        public int UserId { get; set; }
+        public virtual User UserId { get; set; }
         public string Major { get; set; }
         public string Degree { get; set; }
         public string Concentration { get; set; }

@@ -12,9 +12,9 @@ namespace Internship.Models
         [Key]
         public int Id { get; set; }
         [ForeignKey("CPTform")]
-        public int CPTformId { get; set; }
-        [ForeignKey("EmploymentAgreement")]
-        public int EmploymentAgreementId { get; set; }
+        public virtual CPTform CPTformId { get; set; }
+        [ForeignKey("EmployementAgreement")]
+        public virtual EmployementAgreement EmploymentAgreementId { get; set; }
         [ForeignKey("Employer")]
         public int EmployerId { get; set; }
         [ForeignKey("Application")]
