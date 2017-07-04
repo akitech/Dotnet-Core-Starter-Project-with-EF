@@ -10,19 +10,18 @@ namespace Internship.Models
 {
     public class CPTform
     {
-        [Key, ForeignKey("CPTformId")]
+        [Key]
         public int Id { get; set; }
-        public virtual CPTform CPTformId { get; set; }
-        [ForeignKey("ApplicationId")]
-        public virtual Application ApplicationId { get; set; }
-        [ForeignKey("EmployementAgreementId")]
-        public virtual EmployementAgreement EmploymentAgreementId { get; set; }
-        [ForeignKey("EmployerId")]
-        public virtual Employer EmployerId { get; set; }
-        [ForeignKey("LearningObjectiveId")]
-        public virtual LearningObjective LearningObjectiveId { get; set; }
-        [ForeignKey("UserId")]
-        public virtual User UserId { get; set; }
+        [Required]
+        public virtual Application Application { get; set; }
+        [Required]
+        public virtual EmployementAgreement EmploymentAgreement { get; set; }
+        [Required]
+        public virtual Employer Employer { get; set; }
+        [Required]
+        public virtual LearningObjective LearningObjective { get; set; }
+        [Required]
+        public virtual User User { get; set; }
         public enum CptRecommendationType
         {
             mandatoryForGraduation,
