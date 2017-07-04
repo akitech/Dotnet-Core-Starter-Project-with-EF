@@ -11,17 +11,17 @@ namespace Internship.Models
     public class CPTform
     {
         [Key]
-        public int Id { get; set; }
+        public int CPTformId { get; set; }
         [Required]
-        public virtual Application Application { get; set; }
+        public int ApplicationIdId { get; set; }
         [Required]
-        public virtual EmployementAgreement EmploymentAgreement { get; set; }
+        public int EmploymentAgreementId { get; set; }
         [Required]
-        public virtual Employer Employer { get; set; }
+        public int EmployerId { get; set; }
         [Required]
-        public virtual LearningObjective LearningObjective { get; set; }
+        public int LearningObjectiveId { get; set; }
         [Required]
-        public virtual User User { get; set; }
+        public int UserId { get; set; }
         public enum CptRecommendationType
         {
             mandatoryForGraduation,

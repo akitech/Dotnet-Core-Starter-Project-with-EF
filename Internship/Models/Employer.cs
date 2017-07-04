@@ -10,17 +10,17 @@ namespace Internship.Models
     public class Employer
     {
         [Key]
-        public int Id { get; set; }
+        public int EmployerId { get; set; }
         [Required]
-        public virtual CPTform CPTform { get; set; }
+        public int CPTformId { get; set; }
         [Required]
-        public virtual EmployementAgreement EmployementAgreement { get; set; }
+        public int EmployementAgreementId { get; set; }
         [Required]
-        public virtual LearningObjective LearningObjective { get; set; }
+        public int LearningObjectiveId { get; set; }
         [Required]
-        public virtual Application Application { get; set; }
+        public int ApplicationId { get; set; }
         [Required]
-        public virtual User User { get; set; }
+        public virtual User UserId { get; set; }
         public string employersName { get; set; }
         public string employersAddress { get; set; }
         public string supervisorTitle { get; set; }
