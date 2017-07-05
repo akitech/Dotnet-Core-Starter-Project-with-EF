@@ -13,15 +13,18 @@ namespace Internship.Models
         [Key]
         public int CPTformId { get; set; }
         [Required]
-        public int ApplicationIdId { get; set; }
+        public int ApplicationId { get; set; }
+        public virtual Application Application { get; set; }
         [Required]
         public int EmploymentAgreementId { get; set; }
+        public virtual EmployementAgreement EmployementAgreement { get; set; }
         [Required]
         public int EmployerId { get; set; }
+        public virtual Employer Employer { get; set; }
         [Required]
         public int LearningObjectiveId { get; set; }
-        [Required]
-        public int UserId { get; set; }
+        public virtual LearningObjective LearningObjective { get; set; }
+   
         public enum CptRecommendationType
         {
             mandatoryForGraduation,
