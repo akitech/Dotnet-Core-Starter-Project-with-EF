@@ -16,7 +16,7 @@ namespace Internship.Models
         public int ApplicationId { get; set; }
         public virtual Application Application { get; set; }
         [Required]
-        public int EmploymentAgreementId { get; set; }
+        public int EmployementAgreementId { get; set; }
         public virtual EmployementAgreement EmployementAgreement { get; set; }
         [Required]
         public int EmployerId { get; set; }
