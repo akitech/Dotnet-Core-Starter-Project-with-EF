@@ -10,16 +10,16 @@ namespace Internship.Models
     public class User
     {
         [Key]
-        public int Id { get; set; }
-        [ForeignKey("CPTform")]
+        public int UserId { get; set; }
+        [Required]
         public int CPTformId { get; set; }
-        [ForeignKey("EmploymentAgreement")]
-        public int EmploymentAgreementId { get; set; }
-        [ForeignKey("Employer")]
+        [Required]
+        public int EmployementAgreementId { get; set; }
+        [Required]
         public int EmployerId { get; set; }
-        [ForeignKey("Application")]
+        [Required]
         public int ApplicationId { get; set; }
-        [ForeignKey("LearningObjective")]
+        [Required]
         public int LearningObjectiveId { get; set; }
         public string studentFirstNameerty { get; set; }
         public string studentMiddleName { get; set; }
