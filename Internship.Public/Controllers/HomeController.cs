@@ -13,7 +13,12 @@ namespace Internship.Public.Controllers
         {
             return Redirect("~/User/Create");
         }
-        
+
+        public IActionResult Welcome()
+        {
+            return View();
+        }
+
 
         public IActionResult Error()
         {

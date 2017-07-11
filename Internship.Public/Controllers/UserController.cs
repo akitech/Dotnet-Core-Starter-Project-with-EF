@@ -27,8 +27,8 @@ namespace Internship.Public.Controllers
 
         public IActionResult Edit(int Id)
         {
-            var user = userService.Find(Id);
-            return View("Edit", user);
+            var model = userService.Find(Id);
+            return View(model);
         }
 
         public IActionResult Save(User user)
@@ -43,7 +43,7 @@ namespace Internship.Public.Controllers
             }
 
             userService.SaveChanges();
-            return RedirectToAction("Edit", new { Id = user.Id });
+            return RedirectToAction("Login", "Auth");
         }
 
     }

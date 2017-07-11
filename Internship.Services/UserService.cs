@@ -29,6 +29,15 @@ namespace Internship.Services
                .FirstOrDefault();
         }
 
+        public List<User> SearchByName(string keyword)
+        {
+            return
+                Where(u => u.FirstName.Contains(keyword) ||
+                           u.LastName.Contains(keyword))
+                .IncludeAddress()
+                .ToList();
+        }
+
     }
 
     public static class UserServiceExtensions
