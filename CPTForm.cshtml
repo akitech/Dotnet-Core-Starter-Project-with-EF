@@ -1,0 +1,278 @@
+﻿@model Internship.Models.CPTFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>SOUTHEASTERN LOUISIANA UNIVERSITY</h1>
+
+<h3>F-1 Curricular Practical Training (CPT) Information and Request Form</h3>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+}
+<div class="form-horizontal">
+    <h4>A: Recommendation to Be Completed by Academic Advisor (Not by Student) </h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.studentFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.user.studentFirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.user.studentFirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.studentMiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.user.studentMiddleName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.user.studentMiddleName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.studentLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.user.studentLastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.user.studentLastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.application.Major, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.application.Major, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.application.Major, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.application.Degree, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.application.Degree, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.application.Degree, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmploymentAgreement.hoursPerWeek, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmploymentAgreement.hoursPerWeek, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmploymentAgreement.hoursPerWeek, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmploymentAgreement.jobTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmploymentAgreement.jobTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmploymentAgreement.jobTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmploymentAgreement.employmentBeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="date">
+                @Html.EditorFor(model => model.EmploymentAgreement.employmentBeginDate)
+                @Html.ValidationMessageFor(model => model.EmploymentAgreement.employmentBeginDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmploymentAgreement.employmentEndingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="date">
+                @Html.EditorFor(model => model.EmploymentAgreement.employmentEndingDate)
+                @Html.ValidationMessageFor(model => model.EmploymentAgreement.employmentEndingDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmploymentAgreement.descriptionOfEmployment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmploymentAgreement.descriptionOfEmployment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmploymentAgreement.descriptionOfEmployment, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.CourseName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.CourseName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.CourseName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.application.AcademicTerm, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.application.AcademicTerm, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.application.AcademicTerm, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.AcademicAdvisorName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.AcademicAdvisorName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.AcademicAdvisorName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.AcademicAdvisorTelephone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.AcademicAdvisorTelephone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.AcademicAdvisorTelephone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.AcademicAdvisorEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.AcademicAdvisorEmail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.AcademicAdvisorEmail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <h4>B: Request to Be Completed by Student </h4>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.studentCellPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.user.studentCellPhone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.user.studentCellPhone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.studentEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.user.studentEmail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.user.studentEmail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.IsEmployedCurrentlyOnCampus, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.IsEmployedCurrentlyOnCampus)
+                @Html.ValidationMessageFor(model => model.cptform.IsEmployedCurrentlyOnCampus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.IsEmployedCurrentlyOffCampus, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.IsEmployedCurrentlyOffCampus)
+                @Html.ValidationMessageFor(model => model.cptform.IsEmployedCurrentlyOffCampus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.IsRequestForSummerEmployment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.IsRequestForSummerEmployment)
+                @Html.ValidationMessageFor(model => model.cptform.IsRequestForSummerEmployment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.HasPreviousCptAuthorization1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.HasPreviousCptAuthorization1)
+                @Html.ValidationMessageFor(model => model.cptform.HasPreviousCptAuthorization1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization1, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization1, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.WasPreviousCptAuthorizationPartTime1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.WasPreviousCptAuthorizationPartTime1)
+                @Html.ValidationMessageFor(model => model.cptform.WasPreviousCptAuthorizationPartTime1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.HasPreviousCptAuthorization2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.HasPreviousCptAuthorization2)
+                @Html.ValidationMessageFor(model => model.cptform.HasPreviousCptAuthorization2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization2, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.BeginningEmploymentDateOfPreviousCptAuthorization2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization2, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cptform.EndingEmploymentDateOfPreviousCptAuthorization2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cptform.WasPreviousCptAuthorizationPartTime2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.cptform.WasPreviousCptAuthorizationPartTime2)
+                @Html.ValidationMessageFor(model => model.cptform.WasPreviousCptAuthorizationPartTime2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

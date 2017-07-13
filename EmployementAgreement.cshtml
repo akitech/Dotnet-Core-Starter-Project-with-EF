@@ -1,0 +1,132 @@
+﻿@model Internship.Models.EmployementAgreementViewModel
+
+@{
+    ViewBag.Title = "EmployerAgreement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Industrial Internship Employer Agreement
+</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+    
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.user.studentFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.user.studentFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.user.studentFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.user.studentLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.user.studentLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.user.studentLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.employer.employersName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.employer.employersName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.employer.employersName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.application.AcademicTerm, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.application.AcademicTerm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.application.AcademicTerm, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployementAgreement.hoursPerWeek, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployementAgreement.hoursPerWeek, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployementAgreement.hoursPerWeek, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployementAgreement.employmentBeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployementAgreement.employmentBeginDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployementAgreement.employmentBeginDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployementAgreement.employmentEndingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployementAgreement.employmentEndingDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployementAgreement.employmentEndingDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <h4>
+    Conditions of Agreement
+        </h4>
+        <h5>
+            <ol>
+
+                <li style="margin-bottom: 10px;">
+                    While in the process of gaining occupational experience, the student shall not be permitted to remain in any one operation, job, or phrase of each assignment beyond the period of time that is necessary for him/her to become proficient in that job.
+                </li >
+                
+                <li style="margin-bottom: 10px;">
+                    The compensation for this student shall be $ <div class="form-group">
+    @*@Html.LabelFor(model => model.EmployementAgreement.salary, htmlAttributes: new { @class = "control-label col-md-2" })*@
+    <div class="col-md-20">
+        @Html.EditorFor(model => model.EmployementAgreement.salary, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.EmployementAgreement.salary, "", new { @class = "text-danger" })
+    </div>
+</div> @*have not added "per" as in salary per.not sure how to use enum.*@
+ 
+                </li>
+                <li style="margin-bottom: 10px;">
+                    The employer must provide workers compensation coverage for the student intern.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    The student must be employed 20 hours per week for three hours of credit during the fall and spring semesters, or for 40 hours per week for three hours of credit for the summer.
+                </li>
+                <li style="margin-bottom: 10px;">
+                   All employment transfers, withdrawals, or dismissals shall be made jointly by the University representative, student, and employer.
+                </li>
+                <li style="margin-bottom: 10px;">
+                   	A representative of the University will visit the training employer to assess the student's progress.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    The student's immediate supervisor will submit to the University an Employer’s Evaluation of the Industrial Internship Student one (1) week prior to the end of the semester.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    Students must submit the completed forms and all other assignments as detailed in the syllabus.
+                </li>
+
+                I have read the above agreement and agree in full to the conditions set forth.
+            </ol>
+</h5>    
+
+
+
+               
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
