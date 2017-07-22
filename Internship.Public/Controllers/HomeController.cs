@@ -11,7 +11,7 @@ namespace Internship.Public.Controllers
     {
         public IActionResult Index()
         {
-            return Redirect("~/User/Create");
+            return View();
         }
         
 
