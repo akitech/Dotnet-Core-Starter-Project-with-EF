@@ -14,9 +14,6 @@ namespace Internship.Models
         [Key]
         public int ApplicationId { get; set; }
         [Required]
-        public int CPTformId { get; set; }
-        public CPTform CPTform { get; set; }
-        [Required]
         public int EmploymentAgreementId { get; set; }
         public virtual EmploymentAgreement EmployementAgreement { get; set; }
         [Required]

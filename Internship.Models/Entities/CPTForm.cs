@@ -1,20 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
-using System.Linq;
-
-using Internship.Models;
 
 namespace Internship.Models
 {
-    public class CPTform
+    public class CPTForm
     {
         [Key]
-        public int CPTformId { get; set; }
-        [Required]
-        public int ApplicationId { get; set; }
-        public virtual Application Application { get; set; }
+        public int CPTFormId { get; set; }
         [Required]
         public int EmploymentAgreementId { get; set; }
         public virtual EmploymentAgreement EmployementAgreement { get; set; }

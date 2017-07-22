@@ -16,7 +16,7 @@ namespace Internship.Services
         public User GetUserByEmailAddress(string email)
         {
             return
-                 Where(u => u.Email == email)
+                 Where(u => u.studentEmail == email)
                 .IncludeAddress()
                 .FirstOrDefault();
         }
@@ -24,7 +24,7 @@ namespace Internship.Services
         public override User Find(int id)
         {
             return 
-                Where(u => u.Id == id)
+                Where(u => u.UserId == id)
                .IncludeAddress()
                .FirstOrDefault();
         }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Internship.Models.Entities
-    class ApplicationViewModel
+{
+    public class ApplicationViewModel
     {
         public Application application { get; set; }
         public User user { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Web;
+
 
 namespace Internship.Models
 {
@@ -12,7 +12,7 @@ namespace Internship.Models
         [Key] 
         public int LearningObjectiveId { get; set; }
         [Required]
-        public int CPTformId { get; set; }
+        public int CPTFormId { get; set; }
         [Required]
         public int EmploymentAgreementId { get; set; }
         [Required]

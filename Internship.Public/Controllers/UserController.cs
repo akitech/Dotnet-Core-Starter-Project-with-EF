@@ -33,7 +33,7 @@ namespace Internship.Public.Controllers
 
         public IActionResult Save(User user)
         {
-            if (user.Id == 0) //Means a new user
+            if (user.UserId == 0) //Means a new user
             {
                 userService.Create(user);
             }
@@ -43,7 +43,7 @@ namespace Internship.Public.Controllers
             }
 
             userService.SaveChanges();
-            return RedirectToAction("Edit", new { Id = user.Id });
+            return RedirectToAction("Edit", new { Id = user.UserId });
         }
 
     }

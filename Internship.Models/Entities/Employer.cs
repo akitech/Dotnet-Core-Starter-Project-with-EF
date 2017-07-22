@@ -12,7 +12,7 @@ namespace Internship.Models
         [Key]
         public int EmployerId { get; set; }
         [Required]
-        public int CPTformId { get; set; }
+        public int CPTFormId { get; set; }
         [Required]
         public int EmploymentAgreementId { get; set; }
         [Required]
