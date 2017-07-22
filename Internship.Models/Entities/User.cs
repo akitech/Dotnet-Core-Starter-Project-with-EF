@@ -32,6 +32,7 @@ namespace Internship.Models
         public string studentPermanentAddress { get; set; }
         public bool isStudentInternational { get; set; }
         public enum userType { Type1, Type2 }
+        public string password { get; set; }
 
 
     }
