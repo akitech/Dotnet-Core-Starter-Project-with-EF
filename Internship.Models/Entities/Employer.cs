@@ -11,16 +11,20 @@ namespace Internship.Models
     {
         [Key]
         public int EmployerId { get; set; }
+     
         [Required]
-        public int CPTFormId { get; set; }
+        public int UserId { get; set; }
         [Required]
         public int EmploymentAgreementId { get; set; }
+        public virtual EmploymentAgreement EmployementAgreement { get; set; }
+        [Required]
+        public int CPTFormId { get; set; }
+
         [Required]
         public int LearningObjectiveId { get; set; }
+        public virtual LearningObjective LearningObjective { get; set; }
         [Required]
-        public int ApplicationId { get; set; }
-        [Required]
-        public virtual User UserId { get; set; }
+       
         public string employersName { get; set; }
         public string employersAddress { get; set; }
         public string supervisorName{ get; set; }

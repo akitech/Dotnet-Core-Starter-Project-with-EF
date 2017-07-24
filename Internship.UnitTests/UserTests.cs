@@ -61,7 +61,7 @@ namespace Internship.UnitTests
 
                 //What is happening in the background:
                 var user2 = new UserService(new InternshipContext())
-                    .Where(x => x.studentEmail == "tika.pahadi@selu.edu")
+                    .Where(x => x.Email == "tika.pahadi@selu.edu")
                     .IncludeAddress() //Basically, Fetch Address from another table
                     .FirstOrDefault();
 

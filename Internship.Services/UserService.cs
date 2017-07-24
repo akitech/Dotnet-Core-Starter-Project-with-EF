@@ -16,7 +16,7 @@ namespace Internship.Services
         public User GetUserByEmailAddress(string email)
         {
             return
-                 Where(u => u.studentEmail == email)
+                 Where(u => u.Email == email)
                 .IncludeAddress()
                 .FirstOrDefault();
         }

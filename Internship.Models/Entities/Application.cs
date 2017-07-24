@@ -22,6 +22,20 @@ namespace Internship.Models
         [Required]
         public int LearningObjectiveId { get; set; }
         public virtual LearningObjective LearningObjective { get; set; }
+        [Required]
+        public int UserId { get; set; }
+        public string studentFirstName { get; set; }
+        public string studentMiddleName { get; set; }
+        public string studentLastName { get; set; }
+        public int wNum { get; set; }
+        public string studentEmail { get; set; }
+        public int studentCellPhone { get; set; }
+        public int studentWorkPhone { get; set; }
+        public string studentPresentAddress { get; set; }
+        public string studentPermanentAddress { get; set; }
+        public bool isStudentInternational { get; set; }
+        public enum userType { Type1, Type2 }
+
 
         public string Major { get; set; }
         public string Degree { get; set; }

@@ -8,6 +8,8 @@ namespace Internship.Models
         [Key]
         public int CPTFormId { get; set; }
         [Required]
+        public int UserId { get; set; }
+        [Required]
         public int EmploymentAgreementId { get; set; }
         public virtual EmploymentAgreement EmployementAgreement { get; set; }
         [Required]
@@ -15,8 +17,8 @@ namespace Internship.Models
         public virtual Employer Employer { get; set; }
         [Required]
         public int LearningObjectiveId { get; set; }
-        public virtual LearningObjective LearningObjective { get; set; }
-   
+        public virtual LearningObjective LearningObjective { get; set; }           
+
         public enum CptRecommendationType
         {
             mandatoryForGraduation,

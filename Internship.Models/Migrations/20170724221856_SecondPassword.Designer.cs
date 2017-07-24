@@ -8,9 +8,10 @@ using Internship.Models;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    partial class InternshipContextModelSnapshot : ModelSnapshot
+    [Migration("20170724221856_SecondPassword")]
+    partial class SecondPassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -51,9 +52,9 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("EmployerId");
 
-                    b.Property<int>("EmploymentAgreementId");
+                    b.Property<int?>("EmployerId1");
 
-                    b.Property<int?>("EmploymentAgreementId1");
+                    b.Property<int>("EmploymentAgreementId");
 
                     b.Property<bool>("IsApplicationApprovedByDept");
 
@@ -64,8 +65,6 @@ namespace Internship.Models.Migrations
                     b.Property<int?>("LearningObjectiveId1");
 
                     b.Property<string>("Major");
-
-                    b.Property<int>("UserId");
 
                     b.Property<DateTime>("dataInstructorSignedApplicationForm");
 
@@ -121,9 +120,9 @@ namespace Internship.Models.Migrations
 
                     b.HasKey("ApplicationId");
 
-                    b.HasIndex("EmployerId");
+                    b.HasIndex("EmployerId1");
 
-                    b.HasIndex("EmploymentAgreementId1");
+                    b.HasIndex("EmploymentAgreementId");
 
                     b.HasIndex("LearningObjectiveId1");
 
@@ -153,8 +152,6 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("EmploymentAgreementId");
 
-                    b.Property<int?>("EmploymentAgreementId1");
-
                     b.Property<DateTime>("EndingEmploymentDateOfPreviousCptAuthorization1");
 
                     b.Property<DateTime>("EndingEmploymentDateOfPreviousCptAuthorization2");
@@ -173,8 +170,6 @@ namespace Internship.Models.Migrations
 
                     b.Property<int?>("LearningObjectiveId1");
 
-                    b.Property<int>("UserId");
-
                     b.Property<bool>("WasPreviousCptAuthorizationPartTime1");
 
                     b.Property<bool>("WasPreviousCptAuthorizationPartTime2");
@@ -183,7 +178,7 @@ namespace Internship.Models.Migrations
 
                     b.HasIndex("EmployerId1");
 
-                    b.HasIndex("EmploymentAgreementId1");
+                    b.HasIndex("EmploymentAgreementId");
 
                     b.HasIndex("LearningObjectiveId1");
 
@@ -192,23 +187,22 @@ namespace Internship.Models.Migrations
 
             modelBuilder.Entity("Internship.Models.Employer", b =>
                 {
-                    b.Property<int>("EmployerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ApplicationId");
 
                     b.Property<int>("CPTFormId");
 
-                    b.Property<int>("EmploymentAgreementId");
+                    b.Property<int>("EmployerId");
 
-                    b.Property<int?>("EmploymentAgreementId1");
+                    b.Property<int>("EmploymentAgreementId");
 
                     b.Property<int>("LearningObjectiveId");
 
-                    b.Property<int>("UserId");
-
                     b.Property<string>("employersAddress");
 
-                    b.Property<string>("employersName")
-                        .IsRequired();
+                    b.Property<string>("employersName");
 
                     b.Property<string>("supervisorEmail");
 
@@ -218,11 +212,7 @@ namespace Internship.Models.Migrations
 
                     b.Property<string>("supervisorTitle");
 
-                    b.HasKey("EmployerId");
-
-                    b.HasIndex("EmploymentAgreementId1");
-
-                    b.HasIndex("LearningObjectiveId");
+                    b.HasKey("Id");
 
                     b.ToTable("Employers");
                 });
@@ -232,13 +222,7 @@ namespace Internship.Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ApplicationId");
-
-                    b.Property<int>("CPTFormId");
-
                     b.Property<string>("DescriptionOfEmployment");
-
-                    b.Property<int>("EmployerId");
 
                     b.Property<DateTime>("EmploymentBeginDate");
 
@@ -249,8 +233,6 @@ namespace Internship.Models.Migrations
                     b.Property<string>("JobResponsibilities");
 
                     b.Property<string>("JobTitle");
-
-                    b.Property<int>("LearningObjectiveId");
 
                     b.Property<double>("Salary");
 
@@ -346,7 +328,7 @@ namespace Internship.Models.Migrations
 
                     b.HasIndex("CurrentAddressId");
 
-                    b.HasIndex("EmploymentAgreementId")
+                    b.HasIndex("EmployerId")
                         .IsUnique();
 
                     b.HasIndex("PermanentAddressId");
@@ -358,11 +340,11 @@ namespace Internship.Models.Migrations
                 {
                     b.HasOne("Internship.Models.Employer", "Employer")
                         .WithMany()
-                        .HasForeignKey("EmployerId");
+                        .HasForeignKey("EmployerId1");
 
                     b.HasOne("Internship.Models.EmploymentAgreement", "EmployementAgreement")
                         .WithMany()
-                        .HasForeignKey("EmploymentAgreementId1");
+                        .HasForeignKey("EmploymentAgreementId");
 
                     b.HasOne("Internship.Models.LearningObjective", "LearningObjective")
                         .WithMany()
@@ -377,22 +359,11 @@ namespace Internship.Models.Migrations
 
                     b.HasOne("Internship.Models.EmploymentAgreement", "EmployementAgreement")
                         .WithMany()
-                        .HasForeignKey("EmploymentAgreementId1");
+                        .HasForeignKey("EmploymentAgreementId");
 
                     b.HasOne("Internship.Models.LearningObjective", "LearningObjective")
                         .WithMany()
                         .HasForeignKey("LearningObjectiveId1");
-                });
-
-            modelBuilder.Entity("Internship.Models.Employer", b =>
-                {
-                    b.HasOne("Internship.Models.EmploymentAgreement", "EmployementAgreement")
-                        .WithMany()
-                        .HasForeignKey("EmploymentAgreementId1");
-
-                    b.HasOne("Internship.Models.LearningObjective", "LearningObjective")
-                        .WithMany()
-                        .HasForeignKey("LearningObjectiveId");
                 });
 
             modelBuilder.Entity("Internship.Models.User", b =>
@@ -401,9 +372,9 @@ namespace Internship.Models.Migrations
                         .WithMany()
                         .HasForeignKey("CurrentAddressId");
 
-                    b.HasOne("Internship.Models.EmploymentAgreement")
+                    b.HasOne("Internship.Models.Employer")
                         .WithOne("UserId")
-                        .HasForeignKey("Internship.Models.User", "EmploymentAgreementId");
+                        .HasForeignKey("Internship.Models.User", "EmployerId");
 
                     b.HasOne("Internship.Models.Address", "PermanentAddress")
                         .WithMany()
