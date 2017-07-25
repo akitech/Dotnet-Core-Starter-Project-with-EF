@@ -106,6 +106,7 @@ namespace Internship.Models.Migrations
                     Major = table.Column<string>(nullable: true),
                     MajorGPA = table.Column<double>(nullable: false),
                     MiddleName = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
                     PermanentAddressId = table.Column<int>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
                     UserType = table.Column<int>(nullable: false),

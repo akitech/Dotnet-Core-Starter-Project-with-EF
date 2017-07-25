@@ -8,8 +8,8 @@ using Internship.Models;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    [Migration("20170711164804_AddPassword")]
-    partial class AddPassword
+    [Migration("20170725150225_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
