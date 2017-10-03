@@ -25,6 +25,7 @@ namespace Internship.Services
     public interface IUserService : IGenericService<User>
     {
         User GetUserByEmailAddress(string email);
+        User GetUserByToken(string token);
     }
 
     public interface IAddressService : IGenericService<Address>

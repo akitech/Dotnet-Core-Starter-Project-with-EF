@@ -1,0 +1,30 @@
+﻿@model Internship.Models.User
+
+<br />
+<br />
+<br />
+
+<form action="~/User/Register" method="post">
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-4">
+
+            <div class="well">
+                @if  (ViewBag.Success)
+                {
+                    <p>Thank you. The account has been activated. Please login.</p>
+                    <a href="~/User/Login" class="btn btn-success">Login</a>
+                }
+                else
+                {
+                    <p class="text-danger">Sorry, that link did not work. Please make sure you have the right link.</p>
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

@@ -20,6 +20,12 @@ namespace Internship.Services
                 .IncludeAddress()
                 .FirstOrDefault();
         }
+        public User GetUserByToken(string token)
+        {
+            return
+                 Where(u => u.Token == token)
+                .FirstOrDefault();
+        }
 
         public override User Find(int id)
         {
