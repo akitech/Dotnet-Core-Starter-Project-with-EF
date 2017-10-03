@@ -31,7 +31,7 @@ namespace Internship.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            SetConnectionString("Server=v2.zoomaudits.com;Database=test;User ID=sa;Password=MsSQL+Linux=>100");
+            SetConnectionString("Server=localhost;Database=CPTRequestForm;Trusted_Connection=True;MultipleActiveResultSets=true;");
             optionsBuilder.UseSqlServer(DbConnectionString);
             base.OnConfiguring(optionsBuilder);
         }

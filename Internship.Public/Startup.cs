@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Internship.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Internship.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Internship.Public
 {
@@ -31,6 +26,7 @@ namespace Internship.Public
         {
             //var connection = Configuration.GetConnectionString("InternshipContext");
             //services.AddDbContext<InternshipContext>(options => options.UseSqlServer(connection));
+            services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();
         }
 

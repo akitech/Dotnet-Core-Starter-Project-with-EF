@@ -17,6 +17,9 @@ namespace Internship.Models
         public string Phone { get; set; }
         public string Password { get; set; }
 
+        [NotMapped]
+        public string FullName => FirstName + " " + MiddleName + " " + LastName;
+
         public UserType UserType { get; set; }
 
         //Student Attributes:
@@ -35,12 +38,15 @@ namespace Internship.Models
         public Address PermanentAddress { get; set; }
 
         public bool IsInternational { get; set; }
+        public bool IsActive { get; set; }
+        public string Token { get; set; }
 
         public string Major { get; set; }
         public string Degree { get; set; }
         public int CreditHoursRegisteredInSemester { get; set; }
         public double MajorGPA { get; set; }
         public DateTime ExpectededGraduationDate { get; set; }
+
     }
 
 
