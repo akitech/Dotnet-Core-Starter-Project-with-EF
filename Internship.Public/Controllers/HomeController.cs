@@ -13,19 +13,8 @@ namespace Internship.Public.Controllers
             }
             else
             {
-                return Redirect("~/Home/Welcome");
+                return View();
             }
-        }
-
-        public IActionResult Welcome()
-        {
-            return View();
-        }
-
-
-        public IActionResult Error()
-        {
-            return View();
         }
     }
 }
