@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Internship.Models", "Internship.Models\Internship.Models.csproj", "{2EC50C95-33E3-448E-9042-18534DD1C84E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Internship.UnitTests", "Internship.UnitTests\Internship.UnitTests.csproj", "{CE062A85-D1D5-40BD-9D42-91B883FC93E5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Internship.Public", "Internship.Public\Internship.Public.csproj", "{E828C4EC-465B-47A7-B984-CE401C16A3E5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Internship.Services", "Internship.Services\Internship.Services.csproj", "{A54A410D-494B-4BF6-93B7-4548F82C302F}"

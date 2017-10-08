@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using System.Linq;
 
 namespace Internship.Models
@@ -10,15 +9,12 @@ namespace Internship.Models
         #region Constructors
 
         //Constructor for Dependency Injection:
-        //TODO: In Future, maybe Dependency Injection is the way to go.
-        //public InternshipContext(DbContextOptions<InternshipContext> options) : base(options)
-        //{
-        //}
+        public InternshipContext(DbContextOptions<InternshipContext> options) : base(options)
+        {
+        }
 
         public InternshipContext()
         {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-            ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
 
@@ -31,7 +27,7 @@ namespace Internship.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            SetConnectionString("Server=localhost;Database=CPTRequestForm;Trusted_Connection=True;MultipleActiveResultSets=true;");
+            SetConnectionString("Server=DESKTOP-DVFQKOP\\SQLEXPRESS;Database=CPTRequestForm;Trusted_Connection=True;MultipleActiveResultSets=true;");
             optionsBuilder.UseSqlServer(DbConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
@@ -39,8 +35,7 @@ namespace Internship.Models
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Application> Applications { get; set; }
-        public DbSet<CPTForm> CPTForms { get; set; }
+        public DbSet<CptApplication> CptApplications { get; set; }
         public DbSet<Employer> Employers { get; set; }
         public DbSet<EmploymentAgreement> EmployementAgreements { get; set; }
         public DbSet<LearningObjective> LearningObjectives { get; set; }

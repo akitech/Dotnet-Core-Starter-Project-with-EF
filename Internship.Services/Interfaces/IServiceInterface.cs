@@ -33,5 +33,10 @@ namespace Internship.Services
 
     }
 
+    public interface ICptApplicationService : IGenericService<CptApplication>
+    {
+        CptApplication GetById(int id);
+        List<CptApplication> GetByStudentId(int studentId);
+    }
 
 }

@@ -11,9 +11,10 @@ using System;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    partial class InternshipContextModelSnapshot : ModelSnapshot
+    [Migration("20171008210329_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,15 +66,11 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("EmploymentAgreementId");
 
-                    b.Property<DateTime>("EndDate");
-
                     b.Property<int>("InternshipSemester");
 
                     b.Property<bool>("IsPartTime");
 
                     b.Property<string>("ReasonsForNoneApproval");
-
-                    b.Property<DateTime>("StartDate");
 
                     b.Property<int>("StudentId");
 

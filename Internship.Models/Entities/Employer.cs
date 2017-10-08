@@ -11,10 +11,16 @@ namespace Internship.Models
         [Key]
         public int Id { get; set; }
 
+
+        // We link to Cpt applications with this foreign key:
+        public int CptApplicationId { get; set; }
+        [ForeignKey("CptApplicationId")]
+        public virtual CptApplication CptApplication { get; set; }
+
         public string EmployersName { get; set; }
 
-        [ForeignKey("EmployersAddress")]
         public int EmployersAddressId { get; set; }
+        [ForeignKey("EmployersAddressId")]
         public Address EmployersAddress { get; set; }
 
         public string SupervisorName { get; set; }

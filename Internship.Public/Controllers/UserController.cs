@@ -8,15 +8,15 @@ using System.IO;
 
 namespace Internship.Public.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         #region Constructor
         private IUserService _userService { get; set; }
         private IConfiguration _configuration { get; set; }
-        public UserController(IConfiguration configuration)
+        public UserController(IConfiguration configuration, IUserService userService)
         {
             _configuration = configuration;
-            _userService = new UserService(new InternshipContext());
+            _userService = userService;
         }
         #endregion
 
@@ -50,7 +50,10 @@ namespace Internship.Public.Controllers
                 return View();
             }
 
-            return Redirect("~/Home/Welcome");
+            // Save User Session
+            SetLoggedInUser(user);
+
+            return Redirect("~/");
         }
 
         [HttpGet]
@@ -79,6 +82,12 @@ namespace Internship.Public.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
+
         [HttpPost]
         public IActionResult Register(User user)
         {
@@ -89,6 +98,7 @@ namespace Internship.Public.Controllers
                 return View();
             }
 
+            user.UserType = UserType.Student;
             user.IsActive = false;
             user.Token = Guid.NewGuid().ToString();
             user.Password = PasswordHelper.GeneratePasswordHash(user.Password);

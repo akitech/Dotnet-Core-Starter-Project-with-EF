@@ -9,7 +9,7 @@ namespace Internship.Services
 {
     public class UserService : GenericService<User>, IUserService
     {
-        public UserService(DbContext _context) : base(_context)
+        public UserService(InternshipContext _context) : base(_context)
         {
         }
 

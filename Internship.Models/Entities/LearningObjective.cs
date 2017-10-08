@@ -8,16 +8,14 @@ namespace Internship.Models
     {
         [Key]
         public int Id { get; set; }
+
+        // We link to Cpt applications with this foreign key:
+        public int CptApplicationId { get; set; }
+        [ForeignKey("CptApplicationId")]
+        public virtual CptApplication CptApplication { get; set; }
         
-        public string MeasureableLearningObjective1 { get; set; }
-        public double SupervisorsRatingOfLearningObjective1 { get; set; }
-
-
-        public string  MeasureableLearningObjective2 { get; set; }
-        public double supervisorsRatingOfLearningObjective2 { get; set; }
-
-        public string MeasureableLearningObjective3 { get; set; }
-        public double SupervisorsRatingOfLearningObjective3 { get; set; }
+        public string MeasureableLearningObjective { get; set; }
+        public double SupervisorRating { get; set; }
 
     }
 }

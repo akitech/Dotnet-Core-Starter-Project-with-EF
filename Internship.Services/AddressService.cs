@@ -9,7 +9,7 @@ namespace Internship.Services
 
     public class AddressService : GenericService<Address>, IAddressService
     {
-        public AddressService(DbContext _context) : base(_context)
+        public AddressService(InternshipContext _context) : base(_context)
         {
         }
         

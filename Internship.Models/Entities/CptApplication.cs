@@ -1,24 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Internship.Models
 {
-    public class Application
+    public class CptApplication
     {
+        public CptApplication()
+        {
+            ApplicationStep = ApplicationStep.Student;
+            LearningObjectives = new List<LearningObjective>();
+            Employer = new Employer();
+            EmploymentAgreement = new EmploymentAgreement();
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
+        }
+
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int StudentId { get; set; }
+        [ForeignKey("StudentId")]
+        public virtual User Student { get; set; }
 
         public bool IsPartTime { get; set; }
         public Semester InternshipSemester { get; set; }
+        public ApplicationStep ApplicationStep { get; set; }
 
-        [ForeignKey("CPTForm")]
-        public int CPTFormId { get; set; }
-        public CPTForm CPTForm { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+
+        public int EmployerId { get; set; }
+        [ForeignKey("EmployerId")]
+        public Employer Employer { get; set; }
+
+        public int EmploymentAgreementId { get; set; }
+        [ForeignKey("EmploymentAgreementId")]
+        public EmploymentAgreement EmploymentAgreement { get; set; }
+
+        public List<LearningObjective> LearningObjectives { get; set; }
 
 
         #region Signature(s) on various Levels
@@ -37,39 +58,25 @@ namespace Internship.Models
         //but only get fields which will be evalauted as necessary.
         //The idea is, if date is there, it is signed.
         //Reduces Redundancy.
+        [NotMapped]
         public bool IsSignedByStudent => DateSignedByStudent != null;
+        [NotMapped]
         public bool IsSignedByInstructor => DateSignedByInstructor != null;
+        [NotMapped]
         public bool IsSignedByAcademicAdvisor => DateSignedByAcademicAdvisor != null;
+        [NotMapped]
         public bool IsSignedByDepartment => DateSignedByDepartment != null;
+        [NotMapped]
         public bool IsSignedByDean => DateSignedByDean != null;
+        [NotMapped]
         public bool IsSignedBySupervisorUponCompletion => DateSignedBySupervisorUponCompletion != null;
-
-
-        //See Which Step the Application is stuck at:
-        public ApplicationStep ApplicationAt
-        {
-            get
-            {
-                if (!IsSignedByStudent)
-                    return ApplicationStep.Student;
-                if (!IsSignedByInstructor)
-                    return ApplicationStep.Instructor;
-                if (!IsSignedByAcademicAdvisor)
-                    return ApplicationStep.AcademicAdvisor;
-                if (!IsSignedByDepartment)
-                    return ApplicationStep.Department;
-                if (!IsSignedByDean)
-                    return ApplicationStep.Dean;
-
-                //Awaiting Completion
-                return ApplicationStep.Supervisor;
-            }
-        }
-
-        //Means the Application is Approved and Student can start Internship
+        //Means the Application is Approved and Student can start Internship        
+        [NotMapped]
         public bool IsApproved => IsSignedByDean;
         //At the end, after the Supervisor signs
+        [NotMapped]
         public bool IsCompleted => IsSignedBySupervisorUponCompletion;
+
 
         #endregion
 

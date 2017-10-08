@@ -1,6 +1,8 @@
 ﻿using Internship.Models;
+using Internship.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -24,10 +26,18 @@ namespace Internship.Public
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connection = Configuration.GetConnectionString("InternshipContext");
-            //services.AddDbContext<InternshipContext>(options => options.UseSqlServer(connection));
             services.AddSingleton<IConfiguration>(Configuration);
+            var connection = Configuration.GetConnectionString("InternshipContext");
+            services.AddDbContext<InternshipContext>(options => options.UseSqlServer(connection));
+
+            // Dependency Injection:
+            services.AddTransient<IAddressService, AddressService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICptApplicationService, CptApplicationService>();
+
             services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
 
@@ -46,9 +56,9 @@ namespace Internship.Public
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            SetupDatabase(app);
-
+            
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
@@ -57,20 +67,6 @@ namespace Internship.Public
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
-
-        private void SetupDatabase(IApplicationBuilder app)
-        {
-            var connection = Configuration.GetConnectionString("InternshipContext");
-            InternshipContext.SetConnectionString(connection);
-            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            //{
-            //var context = serviceScope.ServiceProvider.GetRequiredService<InternshipContext>();
-            //context.Database.Migrate();
-            //context.DropCreateDatabaseIfModelChanges<InternshipContext>.Seed();
-            //}
-        }
-
 
     }
 }

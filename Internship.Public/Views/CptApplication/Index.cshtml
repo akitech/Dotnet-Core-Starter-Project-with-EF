@@ -1,0 +1,61 @@
+﻿@model Internship.Models.CptApplication
+
+<br />
+<br />
+<div class="container">
+    <form method="post">
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.EmployerId)
+        @Html.HiddenFor(model => model.EmploymentAgreementId)
+        @Html.HiddenFor(model => model.StudentId)
+
+        <div class="row">
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Student First Name:
+                    <input type="text" value="@Model.Student.FirstName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Middle Name:
+                    <input type="text" value="@Model.Student.MiddleName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Last Name:
+                    <input type="text" value="@Model.Student.LastName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    WNumber:
+                    <input type="text" value="@Model.Student.WNumber" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Start Date:
+                    <input type="text" value="@Model.StartDate.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    End Date:
+                    <input type="text" value="@Model.EndDate.ToString("MM/dd/yyyy")" class="form-control" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Employer Name:
+                    <input type="text" value="@Model.Employer.EmployersName" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <input type="submit" value="Save Form" class="btn btn-success" />
+
+    </form>
+
+</div>
+
+
+
+

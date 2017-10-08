@@ -1,13 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.IO;
 
 namespace Internship.Public.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
-            return Redirect("~/User/Register");
+            var loggedInUser = GetLoggedInUser();
+            if (loggedInUser == null)
+            {
+                return Redirect("~/User/Login");
+            }
+            else
+            {
+                return Redirect("~/Home/Welcome");
+            }
         }
 
         public IActionResult Welcome()
@@ -19,15 +26,6 @@ namespace Internship.Public.Controllers
         public IActionResult Error()
         {
             return View();
-        }
-
-        public string Url()
-        {
-
-            var templateFileName = "Views\\EmailTemplates\\activate.html";
-            var templateFilePath = Path.Combine(Directory.GetCurrentDirectory(), templateFileName);
-
-            return System.IO.File.ReadAllText(templateFilePath);
         }
     }
 }
