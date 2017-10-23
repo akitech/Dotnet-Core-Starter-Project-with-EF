@@ -11,9 +11,10 @@ using System;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    partial class InternshipContextModelSnapshot : ModelSnapshot
+    [Migration("20171023040247_Added IsRejected In Application")]
+    partial class AddedIsRejectedInApplication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,8 +84,6 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("StudentId");
 
-                    b.Property<int?>("SupervisorId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AdvisorId");
@@ -94,8 +93,6 @@ namespace Internship.Models.Migrations
                     b.HasIndex("EmploymentAgreementId");
 
                     b.HasIndex("StudentId");
-
-                    b.HasIndex("SupervisorId");
 
                     b.ToTable("CptApplications");
                 });
@@ -246,11 +243,6 @@ namespace Internship.Models.Migrations
                     b.HasOne("Internship.Models.User", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Internship.Models.User", "Supervisor")
-                        .WithMany()
-                        .HasForeignKey("SupervisorId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

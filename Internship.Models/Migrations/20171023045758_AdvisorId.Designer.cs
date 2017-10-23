@@ -11,9 +11,10 @@ using System;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    partial class InternshipContextModelSnapshot : ModelSnapshot
+    [Migration("20171023045758_AdvisorId")]
+    partial class AdvisorId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

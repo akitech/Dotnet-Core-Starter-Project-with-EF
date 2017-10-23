@@ -12,15 +12,12 @@ namespace Internship.Models
             ApplicationStep = ApplicationStep.Student;
             LearningObjectives = new List<LearningObjective>();
             Employer = new Employer();
+            Supervisor = new User();
+            Supervisor.UserType = UserType.Supervisor;
             EmploymentAgreement = new EmploymentAgreement();
             StartDate = DateTime.Now;
             EndDate = DateTime.Now;
-            DateSignedByDean = DateTime.Now;
             DateSignedByStudent = DateTime.Now;
-            DateSignedByDepartment = DateTime.Now;
-            DateSignedByInstructor = DateTime.Now;
-            DateSignedByEmployer = DateTime.Now;
-            DateSignedBySupervisorUponCompletion = DateTime.Now;
         }
 
         [Key]
@@ -37,15 +34,19 @@ namespace Internship.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public int EmployerId { get; set; }
+        public int? EmployerId { get; set; }
         [ForeignKey("EmployerId")]
         public Employer Employer { get; set; }
 
-        public int AdvisorId { get; set; }
+        public int? AdvisorId { get; set; }
         [ForeignKey("AdvisorId")]
         public User Advisor { get; set; }
 
-        public int EmploymentAgreementId { get; set; }
+        public int? SupervisorId { get; set; }
+        [ForeignKey("SupervisorId")]
+        public User Supervisor { get; set; }
+
+        public int? EmploymentAgreementId { get; set; }
         [ForeignKey("EmploymentAgreementId")]
         public EmploymentAgreement EmploymentAgreement { get; set; }
 
@@ -55,16 +56,16 @@ namespace Internship.Models
         #region Signature(s) on various Levels
         //Follow the follwing step. The ReasonsForNoneApproval field
         //may be used by anyone. See: public ApplicationStep ApplicationAt
-        public DateTime DateSignedByStudent { get; set; }
-        public DateTime DateSignedByEmployer { get; set; }
-        public DateTime DateSignedByInstructor { get; set; }
-        public DateTime DateSignedByAcademicAdvisor { get; set; }
-        public DateTime DateSignedByDepartment { get; set; }
-        public DateTime DateSignedByDean { get; set; }
-        public DateTime DateSignedBySupervisorUponCompletion { get; set; }
+        public DateTime? DateSignedByStudent { get; set; }
+        public DateTime? DateSignedByEmployer { get; set; }
+        public DateTime? DateSignedByInstructor { get; set; }
+        public DateTime? DateSignedByAcademicAdvisor { get; set; }
+        public DateTime? DateSignedByDepartment { get; set; }
+        public DateTime? DateSignedByDean { get; set; }
+        public DateTime? DateSignedBySupervisorUponCompletion { get; set; }
         public string ReasonsForNoneApproval { get; set; }
+        public bool IsRejected { get; set; }
 
-        
         //Note these are not properties on database,
         //but only get fields which will be evalauted as necessary.
         //The idea is, if date is there, it is signed.
@@ -88,6 +89,24 @@ namespace Internship.Models
         [NotMapped]
         public bool IsCompleted => IsSignedBySupervisorUponCompletion;
 
+        public string CurrentApplicationStatus
+        {
+            get
+            {
+                if (IsRejected)
+                {
+                    return "Rejected";
+                }
+                else if (IsApproved)
+                {
+                    return "Approved";
+                }
+                else
+                {
+                    return "Pending: " + ApplicationStep.ToString();
+                }
+            }
+        }
 
         #endregion
 

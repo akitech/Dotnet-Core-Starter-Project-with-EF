@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
+
 namespace Internship.Public
 {
     public static class SessionHelper
     {
+
         public static void SetSession(this ISession session, string key, object o)
         {
             var str = JsonConvert.SerializeObject(o);

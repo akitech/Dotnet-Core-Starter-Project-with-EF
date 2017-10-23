@@ -1,0 +1,57 @@
+﻿@using System.Collections.Generic;
+@using Internship.Models;
+@model List<CptApplication>
+
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+
+@if (Model.Count > 0)
+{
+    <h4>Your forms</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Status</th>
+            <th>CPT Period</th>
+            <th>Advisor</th>
+            <th>Employer</th>
+            <th></th>
+        </tr>
+
+        @foreach(var form in Model)
+        {
+            <tr class="@(form.IsRejected ? "danger" : "") @(form.IsApproved ? "success" : "") ">
+                <td>@form.CurrentApplicationStatus </td>
+                <td>@form.StartDate.ToString("MM/dd/yyyy") - @form.EndDate.ToString("MM/dd/yyyy")</td>
+                <td>@(form.Advisor == null ? "" : form.Advisor.FullName)</td>
+                <td>@form.Employer.EmployersName</td>
+                <td>
+                    @if (form.ApplicationStep == ApplicationStep.Student)
+                    {
+                        <a href="/CptApplication/Student/@form.Id.ToString()">Edit &amp; re-apply</a>
+                    }
+                </td>
+            </tr>
+
+
+        }
+
+    </table>
+
+}
+else
+{
+    <h6>You do not have any CPT Applications.</h6>
+}
+
+<a href="~/CptApplication/Student">Start a new Application</a>
+
+
+
+

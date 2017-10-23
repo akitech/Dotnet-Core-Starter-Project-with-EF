@@ -30,5 +30,24 @@ namespace Internship.Public.Controllers
             return HttpContext.Session.GetSession<T>(key);
         }
 
+        public IActionResult RedirectToDashboard(string message = null)
+        {
+            SetTemporaryMessage(message);
+            return RedirectToAction("Index", "Dashboard");
+        }
+
+        public void SetTemporaryMessage(string message)
+        {
+            SetSession("Message", message);
+        }
+
+        public string GetTemporaryMessage()
+        {
+            var message = GetSession<string>("Message");
+            HttpContext.Session.Remove("Message");
+            return message;
+        }
+
+
     }
 }

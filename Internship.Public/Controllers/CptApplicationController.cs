@@ -1,6 +1,7 @@
 ﻿using Internship.Models;
 using Internship.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 
 namespace Internship.Public.Controllers
@@ -14,7 +15,7 @@ namespace Internship.Public.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int? id)
+        public IActionResult Student(int? id)
         {
             CptApplication model = null; 
             if (id != null && id > 0)
@@ -29,16 +30,18 @@ namespace Internship.Public.Controllers
                 {
                     throw new Exception("Only students can initiate a CPT Form.");
                 }
+                model.StudentId = loggedInUser.Id;
                 model.Student = loggedInUser;
             }
             return View(model);
         }
 
         [HttpPost]
-        public string Index(CptApplication app)
+        public IActionResult Student(CptApplication app)
         {
             try
             {
+                app.ApplicationStep = ApplicationStep.AcademicAdvisor;
                 if (app.Id == 0)
                 {
                     _cptApplicationService.Create(app);
@@ -48,25 +51,15 @@ namespace Internship.Public.Controllers
                     _cptApplicationService.Update(app);
                 }
                 _cptApplicationService.SaveChanges();
-                return "The application has been saved.";
+                return RedirectToDashboard("Your application has been saved.");
             }
             catch (Exception ex)
             {
-                return "The application failed to save. Error: " + ex.Message;
+                throw new Exception("The application failed to save. Error: " + ex.Message + "\n" + JsonConvert.SerializeObject(app, Formatting.Indented));
             }
 
         }
 
-        [HttpGet]
-        public IActionResult Student(int? id)
-        {
-            var application = new CptApplication();
-            if (id.HasValue && id.Value > 0)
-            {
-                application = _cptApplicationService.GetById(id.Value);
-            }
-            return View(application);
-        }
 
         [HttpGet]
         public IActionResult Advisor(int? id)

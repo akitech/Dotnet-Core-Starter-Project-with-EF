@@ -14,7 +14,7 @@ namespace Internship.Public.Controllers
             }
             else
             {
-                return View();
+                return Redirect("Dashboard");
             }
         }
         
@@ -44,6 +44,11 @@ namespace Internship.Public.Controllers
             return "Sorry, you are not authorized to view this page. Please login with proper credentials.";
         }
 
+        public string UnconfiguredPage()
+        {
+            return "Sorry, this page does not exist.";
+        }
+
     }
-    
+
 }

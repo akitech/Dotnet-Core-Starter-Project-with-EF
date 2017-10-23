@@ -11,9 +11,10 @@ using System;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    partial class InternshipContextModelSnapshot : ModelSnapshot
+    [Migration("20171023032548_Application_FK_Fix_Null")]
+    partial class Application_FK_Fix_Null
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,19 +52,19 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("ApplicationStep");
 
-                    b.Property<DateTime?>("DateSignedByAcademicAdvisor");
+                    b.Property<DateTime>("DateSignedByAcademicAdvisor");
 
-                    b.Property<DateTime?>("DateSignedByDean");
+                    b.Property<DateTime>("DateSignedByDean");
 
-                    b.Property<DateTime?>("DateSignedByDepartment");
+                    b.Property<DateTime>("DateSignedByDepartment");
 
-                    b.Property<DateTime?>("DateSignedByEmployer");
+                    b.Property<DateTime>("DateSignedByEmployer");
 
-                    b.Property<DateTime?>("DateSignedByInstructor");
+                    b.Property<DateTime>("DateSignedByInstructor");
 
-                    b.Property<DateTime?>("DateSignedByStudent");
+                    b.Property<DateTime>("DateSignedByStudent");
 
-                    b.Property<DateTime?>("DateSignedBySupervisorUponCompletion");
+                    b.Property<DateTime>("DateSignedBySupervisorUponCompletion");
 
                     b.Property<int?>("EmployerId");
 
@@ -75,15 +76,11 @@ namespace Internship.Models.Migrations
 
                     b.Property<bool>("IsPartTime");
 
-                    b.Property<bool>("IsRejected");
-
                     b.Property<string>("ReasonsForNoneApproval");
 
                     b.Property<DateTime>("StartDate");
 
                     b.Property<int>("StudentId");
-
-                    b.Property<int?>("SupervisorId");
 
                     b.HasKey("Id");
 
@@ -94,8 +91,6 @@ namespace Internship.Models.Migrations
                     b.HasIndex("EmploymentAgreementId");
 
                     b.HasIndex("StudentId");
-
-                    b.HasIndex("SupervisorId");
 
                     b.ToTable("CptApplications");
                 });
@@ -246,11 +241,6 @@ namespace Internship.Models.Migrations
                     b.HasOne("Internship.Models.User", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Internship.Models.User", "Supervisor")
-                        .WithMany()
-                        .HasForeignKey("SupervisorId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
