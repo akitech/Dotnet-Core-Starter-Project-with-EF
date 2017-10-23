@@ -8,17 +8,17 @@ namespace Internship.Models
 {
     public class Employer
     {
+
+        public Employer()
+        {
+            EmployersAddress = new Address();
+        }
+
         [Key]
         public int Id { get; set; }
 
-
-        // We link to Cpt applications with this foreign key:
-        public int CptApplicationId { get; set; }
-        [ForeignKey("CptApplicationId")]
-        public virtual CptApplication CptApplication { get; set; }
-
+        public string CompanyName { get; set; }
         public string EmployersName { get; set; }
-
         public int EmployersAddressId { get; set; }
         [ForeignKey("EmployersAddressId")]
         public Address EmployersAddress { get; set; }

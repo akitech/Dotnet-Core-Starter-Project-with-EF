@@ -55,6 +55,8 @@ namespace Internship.Models.Migrations
 
                     b.Property<DateTime>("DateSignedByDepartment");
 
+                    b.Property<DateTime>("DateSignedByEmployer");
+
                     b.Property<DateTime>("DateSignedByInstructor");
 
                     b.Property<DateTime>("DateSignedByStudent");
@@ -93,7 +95,7 @@ namespace Internship.Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CptApplicationId");
+                    b.Property<string>("CompanyName");
 
                     b.Property<int>("EmployersAddressId");
 
@@ -108,8 +110,6 @@ namespace Internship.Models.Migrations
                     b.Property<string>("SupervisorTitle");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CptApplicationId");
 
                     b.HasIndex("EmployersAddressId");
 
@@ -169,6 +169,10 @@ namespace Internship.Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("CellPhone");
+
+                    b.Property<string>("Concentration");
+
                     b.Property<int>("CreditHoursRegisteredInSemester");
 
                     b.Property<int>("CurrentAddressId");
@@ -180,6 +184,8 @@ namespace Internship.Models.Migrations
                     b.Property<DateTime>("ExpectededGraduationDate");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<string>("HomePhone");
 
                     b.Property<bool>("IsActive");
 
@@ -197,13 +203,13 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("PermanentAddressId");
 
-                    b.Property<string>("Phone");
-
                     b.Property<string>("Token");
 
                     b.Property<int>("UserType");
 
                     b.Property<int>("WNumber");
+
+                    b.Property<string>("WorkPhone");
 
                     b.HasKey("Id");
 
@@ -234,11 +240,6 @@ namespace Internship.Models.Migrations
 
             modelBuilder.Entity("Internship.Models.Employer", b =>
                 {
-                    b.HasOne("Internship.Models.CptApplication", "CptApplication")
-                        .WithMany()
-                        .HasForeignKey("CptApplicationId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Internship.Models.Address", "EmployersAddress")
                         .WithMany()
                         .HasForeignKey("EmployersAddressId")

@@ -13,22 +13,83 @@
         <div class="row">
 
             <div class="form-group">
-                <div class="col-md-6">
+
+                @Html.Partial("_HeaderPartial")
+                <div class="text-center">
+                    <h4><b><u>Application for Industrial Internship</u></b></h4>
+                </div>
+
+                <br /> <br />
+
+                <div class="col-md-4">
                     Student First Name:
                     <input type="text" value="@Model.Student.FirstName" class="form-control" />
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     Middle Name:
                     <input type="text" value="@Model.Student.MiddleName" class="form-control" />
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     Last Name:
                     <input type="text" value="@Model.Student.LastName" class="form-control" />
                 </div>
+
+                <br /> <br /> <br /> <br /> 
+
                 <div class="col-md-6">
                     WNumber:
                     <input type="text" value="@Model.Student.WNumber" class="form-control" />
                 </div>
+                <div class="col-md-6">
+                    Email:
+                    <input type="email" value="@Model.Student.Email" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-4">
+                    Cell Phone:
+                    <input type="text" value="@Model.Student.CellPhone" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Home Phone:
+                    <input type="text" value="@Model.Student.HomePhone" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Work Phone:
+                    <input type="text" value="@Model.Student.WorkPhone" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Student.CurrentAddressId" />
+                    Present Address:
+                    <input type="text" value="@Model.Student.CurrentAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Student.CurrentAddress.Zip == 0 ? string.Empty : Model.Student.CurrentAddress.Zip.ToString())" class="form-control" placeholder="Zip"/>
+                    <input type="text" value="@Model.Student.CurrentAddress.City" class="form-control" placeholder="City"/>
+                </div>
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Student.PermanentAddressId" />
+                    Permanent Address:
+                    <input type="text" value="@Model.Student.PermanentAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Student.PermanentAddress.Zip == 0 ? string.Empty : Model.Student.PermanentAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    <input type="text" value="@Model.Student.PermanentAddress.City" class="form-control" placeholder="City" />
+                </div>
+
+                <br /> <br /> <br /> <br /><br /> <br /> <br /> 
+
+                <div class="col-md-6">
+                    Degree:
+                    <input type="text" value="@Model.Student.Degree" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Concentration:
+                    <input type="text" value="@Model.Student.Concentration" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
                 <div class="col-md-6">
                     Start Date:
                     <input type="text" value="@Model.StartDate.ToString(" MM/dd/yyyy")" class="form-control" />
@@ -37,15 +98,306 @@
                     End Date:
                     <input type="text" value="@Model.EndDate.ToString("MM/dd/yyyy")" class="form-control" />
                 </div>
+
+                <br /> <br /> <br /> <br />                
             </div>
 
-
+           
             <div class="form-group">
+                <div class="col-md-12">
+                    Company Name:
+                    <input type="text" value="@Model.Employer.CompanyName" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br /> 
+
                 <div class="col-md-6">
                     Employer Name:
                     <input type="text" value="@Model.Employer.EmployersName" class="form-control" />
+                </div> 
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Employer.EmployersAddressId" />
+                    Employer's Address:
+                    <input type="text" value="@Model.Employer.EmployersAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Employer.EmployersAddress.Zip == 0 ? string.Empty : Model.Employer.EmployersAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    <input type="text" value="@Model.Employer.EmployersAddress.City" class="form-control" placeholder="City" />
+                </div>
+
+                <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Supervisor Name:
+                    <input type="text" value="@Model.Employer.SupervisorName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Supervisor Title:
+                    <input type="text" value="@Model.Employer.SupervisorTitle" class="form-control" />
+                </div> 
+
+                <br /> <br /> <br /> <br /> 
+
+                <div class="col-md-6">
+                    Supervisor's Email:
+                    <input type="email" value="@Model.Employer.SupervisorEmail" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Supervisor's Phone Number:
+                    <input type="text" value="@Model.Employer.SupervisorPhone" class="form-control" />
+                </div>
+                
+                <br /> <br /> <br /> <br /> 
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Job Title:
+                    <input type="text" value="@Model.EmploymentAgreement.JobTitle" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-12">
+                    Job Responsibilities:
+                    <input type="text" value="@Model.EmploymentAgreement.JobResponsibilities" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <h5 style="padding-left:10%">
+                    <b>
+                        NOTE: A copy of your college transcript must be submitted with this application! You may print a copy
+                        from Leonet.
+                    </b>
+                </h5>
+
+                <br /> <br />
+
+                <div class="col-md-6">
+                    Student's Signature:
+                    <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date Signed:
+                    <input type="text" value="@Model.DateSignedByStudent.ToString(" MM/dd/yyyy")" class="form-control" />
                 </div>
             </div>
+
+
+            <br /> <br /> <br /> <br /> <br />
+
+            <h5 style="padding-left:42%;">
+                <b>
+                    DONOT FILL BELOW THIS FORM.
+                </b>
+            </h5>
+
+            <br /> <br /> 
+
+            <div class="form-group">
+                <div class="col-md-1">
+                    Approved:
+                    <input type="checkbox" value="@Model.IsSignedByDepartment" class="form-control" />
+                </div>
+                <div class="col-md-11">
+                    Reason(s)(if not approved):
+                    <input type="text" value="@Model.ReasonsForNoneApproval" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br /> 
+
+                <div class="col-md-6">
+                    Instructor's Signature:
+                    <input type="text" value="@Model.IsSignedByInstructor" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByInstructor.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Department Head's Signature:
+                    <input type="text" value="@Model.IsSignedByDepartment" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByDepartment.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Dean's Signature:
+                    <input type="text" value="@Model.IsSignedByDean" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByDean.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                
+            </div>
+
+            <br /> <br /> <br /> <br /><br /> <br /> <br /> <br /><br /> <br /> 
+
+
+            
+            @Html.Partial("_HeaderPartial")
+            <div class="text-center">
+                <br /><br />
+                <h4>
+                    <b><u>Industrial Internship Employer Agreement</u></b>
+                </h4>
+            </div>
+                <br /> <br />
+
+            <div class="text">
+                <input type="text" value="@Model.Student.FullName" placeholder="Student" style="padding-left:20px;"/> will be employed by <input type="text" value="@Model.Employer.CompanyName" placeholder="Company" style=" padding-left:40px;"/>
+                during the <input type="text" value="@Model.InternshipSemester" /> semester, <input type="text" value="@Model.StartDate.ToString("yyyy")" placeholder=" padding-left: 70px;"/> 
+                <br /><br />
+                The student will work <input type="text" value="@Model.EmploymentAgreement.HoursPerWeek" style="padding-left:70px;"/> hours per week for the semester beginning <input type="text" value="@Model.StartDate.ToString(" MM/dd/yyyy")" />
+                and ending on <input type="text" value="@Model.EndDate.ToString("MM/dd/yyyy")" />.
+            </div>
+            
+            <br /><br /><br />
+
+            <div class="text-center">
+                <h4>
+                    <b>
+                     Conditions of Agreement 
+                    </b>
+                </h4>
+            </div>
+
+            <div class="text">
+                1. While in the process of gaining occupational experience, the student shall not be permitted to remain in any
+                one operation, job, or phrase of each assignment beyond the period of time that is necessary for him/her to
+                become proficient in that job.
+
+                <br />
+
+                2. The compensation for this student shall be $ <input type="text" value="@Model.EmploymentAgreement.Salary" /> per <input type="text" value="@Model.EmploymentAgreement.SalaryType" />.
+
+                <br />
+
+                3. The employer must provide workers compensation coverage for the student intern.
+
+                <br />
+
+                4. The student must be employed 20 hours per week for three hours of credit during the fall and spring
+                semesters, or for 40 hours per week for three hours of credit for the summer.
+
+                <br />
+
+                4. All employment transfers, withdrawals, or dismissals shall be made jointly by the University representative,
+                student, and employer.
+
+                <br />
+
+                5. A representative of the University will visit the training employer to assess the student's progress.
+
+                <br />
+
+                6. The student's immediate supervisor will submit to the University an Employer’s Evaluation of the Industrial
+                Internship Student one (1) week prior to the end of the semester.
+
+                <br />
+
+                7. Students must submit the completed forms and all other assignments as detailed in the syllabus.
+
+                <br /><br />
+
+                I have read the above agreement and agree in full to the conditions set forth.
+
+                <br /><br />
+
+                <div class="col-md-6">
+                    Employer's Signature:
+                    <input type="text" value="@Model.Employer.EmployersName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByEmployer.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Student's Signature:
+                    <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByStudent.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+
+                <br /><br /><br /><br /><br /><br /><br />
+
+
+
+            </div>
+
+            @Html.Partial("_HeaderPartial")
+            <div class="text-center">
+                <h4>
+                    <b><u>Student's Measurable Learning Objectives</u></b>
+                </h4>
+            </div>
+
+            <div class="text">
+                The objectives must be specific to the student’s job and must clearly describe what the student plans to accomplish
+                during the work experience. They must be reviewed by the student’s immediate supervisor, who may suggest
+                changes or additions. The objectives must be submitted at least one week prior to the beginning of the semester
+                and must be approved by the internship coordinator.<br />
+                At the end of the semester, the student’s supervisor must evaluate the extent to which the student accomplished
+                each of the objectives by assigning a percentage figure from 0% to 100% in the column to the right of the
+                objective.<br />
+                <b>Note: Before submitting this form at the beginning of the semester, students must provide a copy to their
+                immediate supervisor to complete at the conclusion of the semester.</b>
+
+                <br />
+
+                I will accomplish the following objectives by the conclusion of the semester.
+                <br />
+                <div class="col-md-10">
+                    <input type="text"  class="form-control" placeholder="Objective 1" />
+                    <input type="text"  class="form-control" placeholder="Objective 2" />
+                    <input type="text"  class="form-control" placeholder="Objective 3" />
+                </div>
+
+                <div class="col-md-2">
+                    <input type="number" class="form-control" placeholder="Supervisor's Rating(%)" />
+                    <input type="number" class="form-control" placeholder="Supervisor's Rating(%)" />
+                    <input type="number" class="form-control" placeholder="Supervisor's Rating(%)" />
+                    <br /><br />
+                </div>
+
+                <div class="col-md-6">
+                    Student’s Approval Signature:
+                    <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByStudent.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div> <br /> 
+
+                <div class="col-md-6">
+                    Instructor’s Approval Signature:
+                    <input type="text" value="@Model.IsSignedByInstructor" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByInstructor.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div> 
+
+                <div class="col-md-6">
+                    Supervisor’s Signature Upon Completion:
+                    <input type="text" value="@Model.IsSignedBySupervisorUponCompletion" class="form-control" />
+                </div>
+
+
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedBySupervisorUponCompletion.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div> 
+
+                </div>
         </div>
 
         <br />

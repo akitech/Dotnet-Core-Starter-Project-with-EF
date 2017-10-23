@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Internship.Models.Migrations
 {
-    public partial class Init : Migration
+    public partial class CreatedDatabasefromCode : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,12 +33,15 @@ namespace Internship.Models.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CellPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Concentration = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreditHoursRegisteredInSemester = table.Column<int>(type: "int", nullable: false),
                     CurrentAddressId = table.Column<int>(type: "int", nullable: false),
                     Degree = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExpectededGraduationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HomePhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsInternational = table.Column<bool>(type: "bit", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -47,10 +50,10 @@ namespace Internship.Models.Migrations
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PermanentAddressId = table.Column<int>(type: "int", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserType = table.Column<int>(type: "int", nullable: false),
-                    WNumber = table.Column<int>(type: "int", nullable: false)
+                    WNumber = table.Column<int>(type: "int", nullable: false),
+                    WorkPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,30 +73,27 @@ namespace Internship.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CptApplications",
+                name: "Employers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ApplicationStep = table.Column<int>(type: "int", nullable: false),
-                    DateSignedByAcademicAdvisor = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSignedByDean = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSignedByDepartment = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSignedByInstructor = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSignedByStudent = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSignedBySupervisorUponCompletion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    InternshipSemester = table.Column<int>(type: "int", nullable: false),
-                    IsPartTime = table.Column<bool>(type: "bit", nullable: false),
-                    ReasonsForNoneApproval = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StudentId = table.Column<int>(type: "int", nullable: false)
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CptApplicationId = table.Column<int>(type: "int", nullable: false),
+                    EmployersAddressId = table.Column<int>(type: "int", nullable: false),
+                    EmployersName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupervisorEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupervisorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupervisorPhone = table.Column<int>(type: "int", nullable: false),
+                    SupervisorTitle = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CptApplications", x => x.Id);
+                    table.PrimaryKey("PK_Employers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CptApplications_Users_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "Users",
+                        name: "FK_Employers_Addresses_EmployersAddressId",
+                        column: x => x.EmployersAddressId,
+                        principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -117,41 +117,50 @@ namespace Internship.Models.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EmployementAgreements", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_EmployementAgreements_CptApplications_CptApplicationId",
-                        column: x => x.CptApplicationId,
-                        principalTable: "CptApplications",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employers",
+                name: "CptApplications",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CptApplicationId = table.Column<int>(type: "int", nullable: false),
-                    EmployersAddressId = table.Column<int>(type: "int", nullable: false),
-                    EmployersName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SupervisorEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SupervisorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SupervisorPhone = table.Column<int>(type: "int", nullable: false),
-                    SupervisorTitle = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ApplicationStep = table.Column<int>(type: "int", nullable: false),
+                    DateSignedByAcademicAdvisor = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedByDean = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedByDepartment = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedByEmployer = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedByInstructor = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedByStudent = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSignedBySupervisorUponCompletion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EmployerId = table.Column<int>(type: "int", nullable: false),
+                    EmploymentAgreementId = table.Column<int>(type: "int", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    InternshipSemester = table.Column<int>(type: "int", nullable: false),
+                    IsPartTime = table.Column<bool>(type: "bit", nullable: false),
+                    ReasonsForNoneApproval = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StudentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employers", x => x.Id);
+                    table.PrimaryKey("PK_CptApplications", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employers_CptApplications_CptApplicationId",
-                        column: x => x.CptApplicationId,
-                        principalTable: "CptApplications",
+                        name: "FK_CptApplications_Employers_EmployerId",
+                        column: x => x.EmployerId,
+                        principalTable: "Employers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Employers_Addresses_EmployersAddressId",
-                        column: x => x.EmployersAddressId,
-                        principalTable: "Addresses",
+                        name: "FK_CptApplications_EmployementAgreements_EmploymentAgreementId",
+                        column: x => x.EmploymentAgreementId,
+                        principalTable: "EmployementAgreements",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CptApplications_Users_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -178,6 +187,16 @@ namespace Internship.Models.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CptApplications_EmployerId",
+                table: "CptApplications",
+                column: "EmployerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CptApplications_EmploymentAgreementId",
+                table: "CptApplications",
+                column: "EmploymentAgreementId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CptApplications_StudentId",
                 table: "CptApplications",
                 column: "StudentId");
@@ -185,14 +204,12 @@ namespace Internship.Models.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_EmployementAgreements_CptApplicationId",
                 table: "EmployementAgreements",
-                column: "CptApplicationId",
-                unique: true);
+                column: "CptApplicationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employers_CptApplicationId",
                 table: "Employers",
-                column: "CptApplicationId",
-                unique: true);
+                column: "CptApplicationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employers_EmployersAddressId",
@@ -213,18 +230,42 @@ namespace Internship.Models.Migrations
                 name: "IX_Users_PermanentAddressId",
                 table: "Users",
                 column: "PermanentAddressId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Employers_CptApplications_CptApplicationId",
+                table: "Employers",
+                column: "CptApplicationId",
+                principalTable: "CptApplications",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_EmployementAgreements_CptApplications_CptApplicationId",
+                table: "EmployementAgreements",
+                column: "CptApplicationId",
+                principalTable: "CptApplications",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_CptApplications_Employers_EmployerId",
+                table: "CptApplications");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_CptApplications_EmployementAgreements_EmploymentAgreementId",
+                table: "CptApplications");
+
             migrationBuilder.DropTable(
-                name: "EmployementAgreements");
+                name: "LearningObjectives");
 
             migrationBuilder.DropTable(
                 name: "Employers");
 
             migrationBuilder.DropTable(
-                name: "LearningObjectives");
+                name: "EmployementAgreements");
 
             migrationBuilder.DropTable(
                 name: "CptApplications");

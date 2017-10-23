@@ -57,5 +57,62 @@ namespace Internship.Public.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Student(int? id)
+        {
+            var application = new CptApplication();
+            if (id.HasValue && id.Value > 0)
+            {
+                application = _cptApplicationService.GetById(id.Value);
+            }
+            return View(application);
+        }
+
+        [HttpGet]
+        public IActionResult Advisor(int? id)
+        {
+            var application = new CptApplication();
+            if (id.HasValue || id.Value > 0)
+            {
+                application = _cptApplicationService.GetById(id.Value);
+            }
+            return View(application);
+        }
+
+        [HttpGet]
+        public IActionResult Instructor(int? id)
+        {
+            var application = new CptApplication();
+            if (id.HasValue && id.Value > 0)
+            {
+                application = _cptApplicationService.GetById(id.Value);
+            }
+            return View(application);
+        }
+
+        [HttpGet]
+        public IActionResult Dean(int? id)
+        {
+            var application = new CptApplication();
+            if (id.HasValue && id.Value > 0)
+            {
+                application = _cptApplicationService.GetById(id.Value);
+            }
+            return View(application);
+        }
+
+        [HttpGet]
+        public IActionResult Supervisor(int? id)
+        {
+            var application = new CptApplication();
+            if (id.HasValue && id.Value > 0)
+            {
+                application = _cptApplicationService.GetById(id.Value);
+            }
+            return View(application);
+        }
+
+
+
     }
 }

@@ -15,6 +15,12 @@ namespace Internship.Models
             EmploymentAgreement = new EmploymentAgreement();
             StartDate = DateTime.Now;
             EndDate = DateTime.Now;
+            DateSignedByDean = DateTime.Now;
+            DateSignedByStudent = DateTime.Now;
+            DateSignedByDepartment = DateTime.Now;
+            DateSignedByInstructor = DateTime.Now;
+            DateSignedByEmployer = DateTime.Now;
+            DateSignedBySupervisorUponCompletion = DateTime.Now;
         }
 
         [Key]
@@ -35,6 +41,10 @@ namespace Internship.Models
         [ForeignKey("EmployerId")]
         public Employer Employer { get; set; }
 
+        public int AdvisorId { get; set; }
+        [ForeignKey("AdvisorId")]
+        public User Advisor { get; set; }
+
         public int EmploymentAgreementId { get; set; }
         [ForeignKey("EmploymentAgreementId")]
         public EmploymentAgreement EmploymentAgreement { get; set; }
@@ -46,6 +56,7 @@ namespace Internship.Models
         //Follow the follwing step. The ReasonsForNoneApproval field
         //may be used by anyone. See: public ApplicationStep ApplicationAt
         public DateTime DateSignedByStudent { get; set; }
+        public DateTime DateSignedByEmployer { get; set; }
         public DateTime DateSignedByInstructor { get; set; }
         public DateTime DateSignedByAcademicAdvisor { get; set; }
         public DateTime DateSignedByDepartment { get; set; }

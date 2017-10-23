@@ -12,9 +12,11 @@ namespace Internship.Models
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
         public string Password { get; set; }
-
+        public string CellPhone { get; set; }
+        public string HomePhone { get; set; }
+        public string WorkPhone { get; set; }
+        
         [NotMapped]
         public string FullName => FirstName + " " + MiddleName + " " + LastName;
 
@@ -30,24 +32,25 @@ namespace Internship.Models
         [ForeignKey("CurrentAddress")]
         public int CurrentAddressId { get; set; }
         public Address CurrentAddress { get; set; }
-        
+
         [ForeignKey("PermanentAddress")]
         public int PermanentAddressId { get; set; }
         public Address PermanentAddress { get; set; }
 
         public bool IsInternational { get; set; }
+        //public bool IsFullTime { get; set; }
         public bool IsActive { get; set; }
         public string Token { get; set; }
 
         public string Major { get; set; }
         public string Degree { get; set; }
+        public string Concentration { get; set; }
         public int CreditHoursRegisteredInSemester { get; set; }
         public double MajorGPA { get; set; }
         public DateTime ExpectededGraduationDate { get; set; }
 
+
     }
-
-
 
 
 }

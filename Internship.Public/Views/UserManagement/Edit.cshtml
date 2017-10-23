@@ -1,0 +1,44 @@
+﻿@model Internship.Models.User
+
+<h2>Edit</h2>
+
+<form action="~/UserManagement/Save" method="post">
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.CurrentAddressId)
+    @Html.HiddenFor(model => model.PermanentAddressId)
+
+    First Name:
+    <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" /> <br />
+
+    Middle Name: 
+    <input type="text" name="MiddleName" value="@Model.MiddleName" class="form-control" /> <br />
+
+    Last Name:
+    <input type="text" name="LastName" value="@Model.LastName" class="form-control" /> <br />
+
+    Email:
+    <input type="email" name="Email" value="@Model.Email" class="form-control" /> <br />
+
+    Password:
+    <input type="text" name="Password" value="@Model.Password" class="form-control" /> <br />
+
+    Current Address:
+    <input type="text" name="CurrentAddress.AddressLine1" value="@Model.CurrentAddress.AddressLine1" class="form-control" /> <br />
+    <input type="text" name="CurrentAddress.Zip" value="@Model.CurrentAddress.Zip" class="form-control" /> <br />
+    <input type="text" name="CurrentAddress.City" value="@Model.CurrentAddress.City" class="form-control" /> <br />
+
+    Permanent Address:
+    <input type="text" name="PermanentAddress.AddressLine1" value="@Model.CurrentAddress.AddressLine1" class="form-control" /> <br />
+    <input type="text" name="PermanentAddress.Zip" value="@Model.CurrentAddress.Zip" class="form-control" /> <br />
+    <input type="text" name="PermanentAddress.City" value="@Model.CurrentAddress.City" class="form-control" /> <br />
+
+    Cell Phone:
+    <input type="text" name="CellPhone" value="@Model.CellPhone" class="form-control" /> <br />
+
+
+
+
+    <input type="submit" value="Save" class="btn btn-success" />
+
+</form>

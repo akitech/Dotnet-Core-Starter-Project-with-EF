@@ -11,8 +11,8 @@ using System;
 namespace Internship.Models.Migrations
 {
     [DbContext(typeof(InternshipContext))]
-    [Migration("20171008210626_Dates")]
-    partial class Dates
+    [Migration("20171015221631_Created Database from Code")]
+    partial class CreatedDatabasefromCode
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,8 @@ namespace Internship.Models.Migrations
 
                     b.Property<DateTime>("DateSignedByDepartment");
 
+                    b.Property<DateTime>("DateSignedByEmployer");
+
                     b.Property<DateTime>("DateSignedByInstructor");
 
                     b.Property<DateTime>("DateSignedByStudent");
@@ -93,6 +95,8 @@ namespace Internship.Models.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CompanyName");
 
                     b.Property<int>("CptApplicationId");
 
@@ -170,6 +174,10 @@ namespace Internship.Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("CellPhone");
+
+                    b.Property<string>("Concentration");
+
                     b.Property<int>("CreditHoursRegisteredInSemester");
 
                     b.Property<int>("CurrentAddressId");
@@ -181,6 +189,8 @@ namespace Internship.Models.Migrations
                     b.Property<DateTime>("ExpectededGraduationDate");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<string>("HomePhone");
 
                     b.Property<bool>("IsActive");
 
@@ -198,13 +208,13 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("PermanentAddressId");
 
-                    b.Property<string>("Phone");
-
                     b.Property<string>("Token");
 
                     b.Property<int>("UserType");
 
                     b.Property<int>("WNumber");
+
+                    b.Property<string>("WorkPhone");
 
                     b.HasKey("Id");
 

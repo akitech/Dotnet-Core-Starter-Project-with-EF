@@ -1,0 +1,110 @@
+﻿@model Internship.Models.CptApplication
+
+<br />
+<br />
+<div class="container">
+    <form method="post">
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.EmployerId)
+        @Html.HiddenFor(model => model.EmploymentAgreementId)
+        @Html.HiddenFor(model => model.StudentId)
+
+        <div class="row">
+
+            <div class="form-group">
+
+                @Html.Partial("_HeaderPartial")
+                <div class="text-center">
+                    <br /><br />
+                    <h4>
+                        <b><u>Industrial Internship Employer Agreement</u></b>
+                    </h4>
+                </div>
+                <br /> <br />
+
+                <div class="text">
+                    <input type="text" value="@Model.Student.FullName" placeholder="Student" style="padding-left:20px;" /> will be employed by <input type="text" value="@Model.Employer.CompanyName" placeholder="Company" style=" padding-left:40px;" />
+                    during the <input type="text" value="@Model.InternshipSemester" /> semester, <input type="text" value="@Model.StartDate.ToString("yyyy")" placeholder=" padding-left: 70px;" />
+                    <br /><br />
+                    The student will work <input type="text" value="@Model.EmploymentAgreement.HoursPerWeek" style="padding-left:70px;" /> hours per week for the semester beginning <input type="text" value="@Model.StartDate.ToString(" MM/dd/yyyy")" />
+                    and ending on <input type="text" value="@Model.EndDate.ToString("MM/dd/yyyy")" />.
+                </div>
+
+                <br /><br /><br />
+
+                <div class="text-center">
+                    <h4>
+                        <b>
+                            Conditions of Agreement
+                        </b>
+                    </h4>
+                </div>
+
+                <div class="text">
+                    1. While in the process of gaining occupational experience, the student shall not be permitted to remain in any
+                    one operation, job, or phrase of each assignment beyond the period of time that is necessary for him/her to
+                    become proficient in that job.
+
+                    <br />
+
+                    2. The compensation for this student shall be $ <input type="text" value="@Model.EmploymentAgreement.Salary" /> per <input type="text" value="@Model.EmploymentAgreement.SalaryType" />.
+
+                    <br />
+
+                    3. The employer must provide workers compensation coverage for the student intern.
+
+                    <br />
+
+                    4. The student must be employed 20 hours per week for three hours of credit during the fall and spring
+                    semesters, or for 40 hours per week for three hours of credit for the summer.
+
+                    <br />
+
+                    4. All employment transfers, withdrawals, or dismissals shall be made jointly by the University representative,
+                    student, and employer.
+
+                    <br />
+
+                    5. A representative of the University will visit the training employer to assess the student's progress.
+
+                    <br />
+
+                    6. The student's immediate supervisor will submit to the University an Employer’s Evaluation of the Industrial
+                    Internship Student one (1) week prior to the end of the semester.
+
+                    <br />
+
+                    7. Students must submit the completed forms and all other assignments as detailed in the syllabus.
+
+                    <br /><br />
+
+                    I have read the above agreement and agree in full to the conditions set forth.
+
+                    <br /><br />
+
+                    <div class="col-md-6">
+                        Employer's Signature:
+                        <input type="text" value="@Model.Employer.EmployersName" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        Date:
+                        <input type="text" value="@Model.DateSignedByEmployer.ToString(" MM/dd/yyyy")" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        Student's Signature:
+                        <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        Date:
+                        <input type="text" value="@Model.DateSignedByStudent.ToString(" MM/dd/yyyy")" class="form-control" />
+                    </div>
+
+                    <br /><br /><br /><br /><br /><br /><br />
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+

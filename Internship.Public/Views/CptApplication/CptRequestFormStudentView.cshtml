@@ -1,0 +1,131 @@
+﻿@model Internship.Models.CptApplication
+
+<br />
+<br />
+<div class="container">
+    <form method="post">
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.EmployerId)
+        @Html.HiddenFor(model => model.EmploymentAgreementId)
+        @Html.HiddenFor(model => model.StudentId)
+
+        <div class="row">
+
+            <div class="form-group">
+
+                @Html.Partial("_HeaderPartial")
+                <div class="text-center">
+                    <h4><b><u>F-1 Curricular Practical Training (CPT) Information and Request Form </u></b></h4>
+                </div>
+
+                <br /><br />
+
+                <div class="text">
+
+                    <b>The U.S. Department of Homeland Security regulations state that Curricular Practical Training (CPT) must be “an integral part of an established curriculum.” They define curricular practical training as “alternate work/study, internship, cooperative education, or any other type of required internship or practicum which is offered by sponsoring employers through cooperative agreements with the school.” Thus, CPT for F-1 students is intended to provide work experience in situations where the work serves as an integral part of a student’s academic program, prior to completion of than program.</b> <br />
+
+                    <b><u>Eligibility: </u></b> <br />
+
+                    The student must have been lawfully enrolled on a full-time basis for one academic year before being eligible for CPT.  An exception exists for graduate students whose programs require immediate participation in an internship, a practicum, or other employment.  It is available only while the student is in valid F-1 status and before the completion of his/her program.  Students in English Language Learning programs are not eligible for CPT.  If the student had a gap in study or a status violation, the one academic year waiting period may need to be recalculated once the student has obtained valid F-1 status.<br />
+
+                    <b><u>Criteria</u></b><br />
+
+                    The International Services Office can authorize CPT if it can be clearly documented that the proposed employment meets one of the two conditions below. <br />
+
+                    <b>•	The training employment is required of all degree candidates in the program and is necessary for the awarding of the degree. </b> Included in this category is employment in a required internship or practicum. There are only a few academic programs at Southeastern which require a period of off-campus employment for all degree candidates. This requirement must be formally documented in school publications. <br />
+
+                    <b>•	The training employment will result in the awarding of academic credit. </b>Included in this category is employment for a course specifically designed to award academic credit for an employment experience. This may include graduate students in dissertation/thesis status where the training opportunity is an integral component of the student’s dissertation/thesis. In both of these cases, you must register and complete the CPT-related course during the semester that you are working under CPT authorization. For example, if you will be working in the summer, you must register and complete the CPT-related course in the same summer semester.<br />
+
+                    If CPT is for your last semester, you must have at least one other remaining degree-required course for which to register, in addition to the CPT course unless the CPT course is the degree-required course. <br />
+
+                    <b><u>Part-Time vs. Full-Time CPT</u></b>
+
+                    <b>Part-Time Training</b> <br />
+                    During the school year while classes are in session, students can engage in CPT on a part-time basis, limited to no more than 20 hours per week. <br />
+
+                    <b>Full-Time Training</b>
+                    A student can engage in full-time CPT during official University breaks and vacation.  Full-time CPT allows the student to work more than 20 hours per week.  If you participate in 12 months or more of full-time curricular practical training, you will not be eligible for postcompletion optional practical training (OPT). <br />
+
+                   <b><u> Application and Documentation Requirements</u></b><br />
+
+                    If you are unsure about your eligibility for CPT, you should first meet with an ISO advisor (if possible, please bring any of the documents listed below to the initial consultation). If applicable, you should register for the CPT course prior to seeing the ISO.  To apply for CPT, you must meet with an ISO advisor and bring the following documents with you: <br />
+
+                    •	Copy of your official offer letter on company letterhead that is signed by the prospective employer.  A photocopy is acceptable. <br />
+                    The letter should include the employer’s name, full address, dates of employment, and duties.<br />
+                    •	A CPT Recommendation Form completed by your academic advisor.<br />
+                    •	Copies of your current immigration documents:  passport, front and back of I-94 card, and I-20(s).<br />
+
+                    <b><u>Authorization Procedures</u></b>
+
+                    If you are eligible and have the documentation required for CPT, the ISO will authorize CPT by issuing a new I-20.  Processing time is 3 business days.  You may engage in CPT employment only after you have received the I-20 with your CPT authorization from the ISO. <b>This work authorization is valid only for the specific employer, location, time period and on a part-time or full-time basis as approved and recorded by the ISO </b>as evidenced on your I-20 issued for CPT.  You may not continue employment beyond the date authorized unless you apply and are granted an extension of your permission to work from the ISO.  To do so would be a violation of your nonimmigrant student status, and such a violation would jeopardize your ability to remain in the U.S.
+
+                    <b><u>Social Security Number</u></b>
+
+                    If you do not have an SSN, you should apply for on based on the CPT authorization.
+
+                </div>
+
+                <div class="col-md-1">
+                    Are you currently employed on campus? <br /> Yes
+                    <input type="checkbox"/>
+                </div>
+                <div class="col-md-1">
+                    No
+                    <input type="checkbox" />
+                </div>
+
+                <br /><br /><br />
+
+                <div class="col-md-1">
+                    Are you currently employed off campus? <br /> Yes
+                    <input type="checkbox" />
+                </div>
+                <div class="col-md-1">
+                    No
+                    <input type="checkbox" />
+                </div>
+
+                <br /><br /><br />
+
+                <div class="col-md-1">
+                    If this request is for summer employment, are you eligible and intend to enroll full time in the immediately following fall semester? <br /> Yes
+                    <input type="checkbox" />
+                </div>
+                <div class="col-md-1">
+                    No
+                    <input type="checkbox" />
+                </div>
+                <div class="col-md-1">
+                    Not applicable
+                    <input type="checkbox" />
+                </div>
+
+
+                <br /><br /><br />
+
+                <div class="col-md-1">
+                    Are you currently employed off campus? <br /> Yes
+                    <input type="checkbox" />
+                </div>
+                <div class="col-md-1">
+                    No
+                    <input type="checkbox" />
+                </div>
+
+                <div class="text">
+                    If applicable, I have registered for the course related to this CPT request for the applicable semester and understand that CPT authorization will be voided if I drop the course.  If CPT authorization is voided, I understand that I may not be eligible for further F-1 benefits.  I have maintained valid immigration status since I began my study at Southeastern Louisiana University.
+                </div>
+
+                <div class="col-md-6">
+                    Signature of Student: 
+                    <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date:
+                    <input type="text" value="@Model.DateSignedByStudent" class="form-control" />
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>

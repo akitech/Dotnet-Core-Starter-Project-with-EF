@@ -1,0 +1,195 @@
+﻿@model Internship.Models.CptApplication
+
+@{
+    ViewData["Title"] = "StudentView";
+}
+
+<br />
+<br />
+<div class="container">
+    <form method="post">
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.EmployerId)
+        @Html.HiddenFor(model => model.EmploymentAgreementId)
+        @Html.HiddenFor(model => model.StudentId)
+
+        <div class="row">
+
+            <div class="form-group">
+
+                @Html.Partial("_HeaderPartial")
+                <div class="text-center">
+                    <b><u>Application for Industrial Internship</u></b>
+                </div>
+
+                <br /> <br />
+
+                <div class="col-md-4">
+                    Student First Name:
+                    <input type="text" value="@Model.Student.FirstName" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Middle Name:
+                    <input type="text" value="@Model.Student.MiddleName" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Last Name:
+                    <input type="text" value="@Model.Student.LastName" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    WNumber:
+                    <input type="text" value="@Model.Student.WNumber" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Email:
+                    <input type="email" value="@Model.Student.Email" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-4">
+                    Cell Phone:
+                    <input type="text" value="@Model.Student.CellPhone" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Home Phone:
+                    <input type="text" value="@Model.Student.HomePhone" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    Work Phone:
+                    <input type="text" value="@Model.Student.WorkPhone" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Student.CurrentAddressId" />
+                    Present Address:
+                    <input type="text" value="@Model.Student.CurrentAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Student.CurrentAddress.Zip == 0 ? string.Empty : Model.Student.CurrentAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    <input type="text" value="@Model.Student.CurrentAddress.City" class="form-control" placeholder="City" />
+                </div>
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Student.PermanentAddressId" />
+                    Permanent Address:
+                    <input type="text" value="@Model.Student.PermanentAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Student.PermanentAddress.Zip == 0 ? string.Empty : Model.Student.PermanentAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    <input type="text" value="@Model.Student.PermanentAddress.City" class="form-control" placeholder="City" />
+                </div>
+
+                <br /> <br /> <br /> <br /><br /> <br /> <br />
+
+                <div class="col-md-6">
+                    Degree:
+                    <input type="text" value="@Model.Student.Degree" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Concentration:
+                    <input type="text" value="@Model.Student.Concentration" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    Start Date:
+                    <input type="text" value="@Model.StartDate.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    End Date:
+                    <input type="text" value="@Model.EndDate.ToString("MM/dd/yyyy")" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    Company Name:
+                    <input type="text" value="@Model.Employer.CompanyName" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    Employer Name:
+                    <input type="text" value="@Model.Employer.EmployersName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <input type="hidden" value="@Model.Employer.EmployersAddressId" />
+                    Employer's Address:
+                    <input type="text" value="@Model.Employer.EmployersAddress.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                    <input type="text" value="@(Model.Employer.EmployersAddress.Zip == 0 ? string.Empty : Model.Employer.EmployersAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    <input type="text" value="@Model.Employer.EmployersAddress.City" class="form-control" placeholder="City" />
+                </div>
+
+                <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Supervisor Name:
+                    <input type="text" value="@Model.Employer.SupervisorName" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Supervisor Title:
+                    <input type="text" value="@Model.Employer.SupervisorTitle" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-6">
+                    Supervisor's Email:
+                    <input type="email" value="@Model.Employer.SupervisorEmail" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Supervisor's Phone Number:
+                    <input type="text" value="@Model.Employer.SupervisorPhone" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    Job Title:
+                    <input type="text" value="@Model.EmploymentAgreement.JobTitle" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <div class="col-md-12">
+                    Job Responsibilities:
+                    <input type="text" value="@Model.EmploymentAgreement.JobResponsibilities" class="form-control" />
+                </div>
+
+                <br /> <br /> <br /> <br />
+
+                <h5 style="padding-left:10%">
+                    <b>
+                        NOTE: A copy of your college transcript must be submitted with this application! You may print a copy
+                        from Leonet.
+                    </b>
+                </h5>
+
+                <br /> <br />
+
+                <div class="col-md-6">
+                    Student's Signature:
+                    <input type="text" value="@Model.IsSignedByStudent" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    Date Signed:
+                    <input type="text" value="@Model.DateSignedByStudent.ToString(" MM/dd/yyyy")" class="form-control" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
