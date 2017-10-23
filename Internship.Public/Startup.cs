@@ -27,8 +27,8 @@ namespace Internship.Public
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IConfiguration>(Configuration);
-            var connection = Configuration.GetConnectionString("InternshipContext");
-            services.AddDbContext<InternshipContext>(options => options.UseSqlServer(connection));
+            var connection = Configuration.GetConnectionString("(default)");
+            services.AddDbContext<InternshipContext>(options => options.UseMySql(connection));
 
             // Dependency Injection:
             services.AddTransient<IAddressService, AddressService>();
