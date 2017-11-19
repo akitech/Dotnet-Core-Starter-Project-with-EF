@@ -32,8 +32,7 @@ namespace Internship.Public.Controllers
                     return RedirectToAction("UnauthorizedUser");
             }
         }
-             
-
+        
         [Authorize(UserType.Student)]
         public IActionResult Student()
         {

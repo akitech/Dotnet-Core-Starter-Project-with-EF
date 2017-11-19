@@ -4,7 +4,7 @@
     ViewData["Title"] = "Advisor";
 }
 <h2>Instructor </h2> <br /><br />
-<h4>Your forms</h4>
+<h4>Your forms @Model.Count</h4>
 <table class="table table-striped">
     <tr>
         <th>Email</th>
@@ -18,7 +18,7 @@
         <tr>
             <td>@application.Student.Email</td>
             <td>@application.Student.FullName</td>
-            <td><a href="#" class="btn btn-success">Accept</a></td>
+            <td>@Html.ActionLink("Accept", "Accept", "Dashboard", new { id = @application.Id, signedBy="instructor"}, new { @class = "btn btn-success"})</td>
             <td><a href="#" class="btn btn-danger">Reject</a></td>
         </tr>
     }

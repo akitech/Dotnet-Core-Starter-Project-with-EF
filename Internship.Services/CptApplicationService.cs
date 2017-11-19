@@ -41,6 +41,7 @@ namespace Internship.Services
         public List<CptApplication> GetAdvisorApprovedForms()
         {
             return Where(app => app.IsSignedByAcademicAdvisor == true)
+                .Where(app => app.IsSignedByInstructor == false)
                 .Include(app => app.Employer)
                 .Include(app => app.Student)
                 .Include(app => app.Supervisor)
