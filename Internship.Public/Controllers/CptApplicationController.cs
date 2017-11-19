@@ -37,8 +37,10 @@ namespace Internship.Public.Controllers
         }
 
         [HttpPost]
+        [Authorize(UserType.Student)]
         public IActionResult Student(CptApplication app)
         {
+            app.StudentId = GetLoggedInUser().Id;
             try
             {
                 app.ApplicationStep = ApplicationStep.AcademicAdvisor;

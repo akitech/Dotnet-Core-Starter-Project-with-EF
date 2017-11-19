@@ -181,7 +181,7 @@ namespace Internship.Models.Migrations
 
                     b.Property<int>("CreditHoursRegisteredInSemester");
 
-                    b.Property<int>("CurrentAddressId");
+                    b.Property<int?>("CurrentAddressId");
 
                     b.Property<string>("Degree");
 
@@ -207,13 +207,13 @@ namespace Internship.Models.Migrations
 
                     b.Property<string>("Password");
 
-                    b.Property<int>("PermanentAddressId");
+                    b.Property<int?>("PermanentAddressId");
 
                     b.Property<string>("Token");
 
                     b.Property<int>("UserType");
 
-                    b.Property<int>("WNumber");
+                    b.Property<string>("WNumber");
 
                     b.Property<string>("WorkPhone");
 

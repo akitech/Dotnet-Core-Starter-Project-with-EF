@@ -27,14 +27,14 @@ namespace Internship.Models
         //Maybe create a Student class that extends User?
         //Maybe create a Dean class that extends User? etc.
 
-        public int WNumber { get; set; }
+        public string WNumber { get; set; }
 
         [ForeignKey("CurrentAddress")]
-        public int CurrentAddressId { get; set; }
+        public int? CurrentAddressId { get; set; }
         public Address CurrentAddress { get; set; }
 
         [ForeignKey("PermanentAddress")]
-        public int PermanentAddressId { get; set; }
+        public int? PermanentAddressId { get; set; }
         public Address PermanentAddress { get; set; }
 
         public bool IsInternational { get; set; }

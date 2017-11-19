@@ -1,0 +1,107 @@
+﻿@using Internship.Models
+@model User
+<div class="tab-content">
+    <form method="post">
+        <div class="well">
+        <h4>Student Profile</h4>
+        <hr/>
+        <div class="row">
+            <div class="col-md-3">
+                Student First Name:
+                <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" required/>
+            </div>
+            <div class="col-md-2">
+                Middle Name:
+                <input type="text" name="MiddleName" value="@Model.MiddleName" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                Last Name:
+                <input type="text" name="LastName" value="@Model.LastName" class="form-control" required/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                WNumber:
+                <input type="text" name="WNumber" value="@(Model.WNumber)" class="form-control" required/>
+            </div>
+            <div class="col-md-4">
+                Email:
+                <input type="email" name="Email" value="@Model.Email" class="form-control" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Degree:
+                <input type="text" name="Degree" value="@Model.Degree" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                Concentration:
+                <input type="text" name="Concentration" value="@Model.Concentration" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Cell Phone:
+                <input type="text" name="CellPhone" value="@Model.CellPhone" class="form-control" required/>
+            </div>
+            <div class="col-md-4">
+                Home Phone:
+                <input type="text" name="HomePhone" value="@Model.HomePhone" class="form-control" />
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="hidden" name="CurrentAddressId" value="@Model.CurrentAddressId" />
+                <input type="hidden" name="CurrentAddress.Id" value="@Model.CurrentAddress.Id" />
+                Present Address:
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" name="CurrentAddress.AddressLine1" value="@Model.CurrentAddress.AddressLine1" class="form-control" placeholder="Street Address" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="CurrentAddress.Zip" value="@(Model.CurrentAddress.Zip == 0 ? string.Empty : Model.CurrentAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="CurrentAddress.City" value="@Model.CurrentAddress.City" class="form-control" placeholder="City" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="CurrentAddress.State" value="@Model.CurrentAddress.State" class="form-control" placeholder="State" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="hidden" name="PermanentAddressId" value="@Model.PermanentAddressId" />
+                <input type="hidden" name="PermanentAddress.Id" value="@Model.PermanentAddress.Id" />
+
+                Permanent Address:
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" name="PermanentAddress.AddressLine1" value="@Model.PermanentAddress.AddressLine1" class="form-control" placeholder="Street Address" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="PermanentAddress.Zip" value="@(Model.PermanentAddress.Zip == 0 ? string.Empty : Model.PermanentAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="PermanentAddress.City" value="@Model.PermanentAddress.City" class="form-control" placeholder="City" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="PermanentAddress.State" value="@Model.PermanentAddress.State" class="form-control" placeholder="State" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <button class="btn btn-success">Save Profile</button>
+        </div>
+    </form>
+</div>

@@ -46,7 +46,9 @@ namespace Internship.Public.Controllers
         [Authorize(UserType.AcademicAdvisor)]
         public IActionResult Advisor()
         {
-            return View();
+            var loggedInAdvisor = GetLoggedInUser();
+            var advisorForms = _cptApplicationService.GetAdvisorForms(loggedInAdvisor.Id);
+            return View(advisorForms);
         }
 
     }

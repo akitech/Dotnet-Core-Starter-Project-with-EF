@@ -17,6 +17,8 @@ namespace Internship.Services
             return Where(app => app.Id == id)
                 .Include(app => app.Employer)
                 .Include(app => app.Student)
+                .Include("Student.CurrentAddress")
+                .Include("Student.PermanentAddress")
                 .Include(app => app.Supervisor)
                 .Include(app => app.LearningObjectives)
                 .Include(app => app.EmploymentAgreement)
@@ -27,6 +29,30 @@ namespace Internship.Services
         public List<CptApplication> GetStudentForms(int studentId)
         {
             return Where(app => app.StudentId == studentId)
+                .Include(app => app.Employer)
+                .Include(app => app.Student)
+                .Include(app => app.Supervisor)
+                .Include(app => app.LearningObjectives)
+                .Include(app => app.EmploymentAgreement)
+                .Include(app => app.Advisor)
+                .ToList();
+        }
+
+        public List<CptApplication> GetAdvisorForms(int advisorId)
+        {
+            return Where(app => app.AdvisorId == advisorId)
+                .Include(app => app.Employer)
+                .Include(app => app.Student)
+                .Include(app => app.Supervisor)
+                .Include(app => app.LearningObjectives)
+                .Include(app => app.EmploymentAgreement)
+                .Include(app => app.Advisor)
+                .ToList();
+        }
+
+        public List<CptApplication> GetEmployerForms(int employerId)
+        {
+            return Where(app => app.EmployerId == employerId)
                 .Include(app => app.Employer)
                 .Include(app => app.Student)
                 .Include(app => app.Supervisor)
