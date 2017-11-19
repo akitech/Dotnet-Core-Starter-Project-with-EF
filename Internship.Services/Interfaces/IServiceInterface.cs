@@ -37,6 +37,7 @@ namespace Internship.Services
     {
         CptApplication GetById(int id);
         List<CptApplication> GetStudentForms(int studentId);
+        List<CptApplication> GetStudentForms();
         List<CptApplication> GetAdvisorForms(int advisorId);
         List<CptApplication> GetEmployerForms(int employerId);
     }

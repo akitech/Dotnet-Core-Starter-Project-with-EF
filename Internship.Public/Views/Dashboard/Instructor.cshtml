@@ -3,11 +3,8 @@
 @{
     ViewData["Title"] = "Advisor";
 }
-
-<h2>Advisor </h2> <br /><br />
-
+<h2>Instructor </h2> <br /><br />
 <h4>Your forms</h4>
-
 <table class="table table-striped">
     <tr>
         <th>Email</th>
@@ -20,8 +17,8 @@
     {
         <tr>
             <td>@application.Student.Email</td>
-            <td>@application.Student.FullName @application.IsSignedByAcademicAdvisor+""</td>
-            <td>@Html.ActionLink("Accept", "AdvisorAccept", "Dashboard", new { id = application.Id})</td>
+            <td>@application.Student.FullName</td>
+            <td><a href="#" class="btn btn-success">Accept</a></td>
             <td><a href="#" class="btn btn-danger">Reject</a></td>
         </tr>
     }

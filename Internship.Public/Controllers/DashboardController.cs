@@ -1,6 +1,8 @@
 ﻿using Internship.Models;
 using Internship.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace Internship.Public.Controllers
 {
@@ -43,11 +45,55 @@ namespace Internship.Public.Controllers
 
         }
 
-        [Authorize(UserType.AcademicAdvisor)]
+        [Authorize]
         public IActionResult Advisor()
         {
             var loggedInAdvisor = GetLoggedInUser();
-            var advisorForms = _cptApplicationService.GetAdvisorForms(loggedInAdvisor.Id);
+            var advisorForms = _cptApplicationService.GetStudentForms();
+            return View(advisorForms);
+        }
+
+        [Authorize]
+        public IActionResult AdvisorAccept(string id)
+        {
+            int applicationId = System.Int32.Parse(id);
+            //var now = DateTime.Now;
+            var application = _cptApplicationService.Find(applicationId);
+            //application.DateSignedByAcademicAdvisor = now;
+            this._cptApplicationService.Update(application);
+            this._cptApplicationService.SaveChanges();
+            return RedirectToAction("Advisor", "Dashboard");
+        }
+
+        [Authorize]
+        public IActionResult Employer()
+        {
+            var loggedInAdvisor = GetLoggedInUser();
+            var advisorForms = _cptApplicationService.GetStudentForms();
+            return View(advisorForms);
+        }
+
+        [Authorize]
+        public IActionResult Dean()
+        {
+            var loggedInAdvisor = GetLoggedInUser();
+            var advisorForms = _cptApplicationService.GetStudentForms();
+            return View(advisorForms);
+        }
+
+        [Authorize]
+        public IActionResult Instructor()
+        {
+            var loggedInAdvisor = GetLoggedInUser();
+            var advisorForms = _cptApplicationService.GetStudentForms();
+            return View(advisorForms);
+        }
+
+        [Authorize]
+        public IActionResult Department()
+        {
+            var loggedInAdvisor = GetLoggedInUser();
+            var advisorForms = _cptApplicationService.GetStudentForms();
             return View(advisorForms);
         }
 
