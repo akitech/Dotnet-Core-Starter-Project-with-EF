@@ -1,7 +1,29 @@
 ﻿
+@model List<Internship.Models.CptApplication>
 @{
-    ViewData["Title"] = "Dean";
+    ViewData["Title"] = "Advisor";
 }
+<h2>Dean </h2> <br /><br />
+<h4>Your forms @Model.Count</h4>
+<table class="table table-striped">
+    <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Accept</th>
+        <th>Reject</th>
+    </tr>
 
-<h2>Dean</h2>
+    @foreach (var application in Model)
+    {
+        <tr>
+            <td>@application.Student.Email</td>
+            <td>@application.Student.FullName </td>
+            <td>@Html.ActionLink("Accept", "Accept", "Dashboard", new { id = @application.Id, signedBy = "Dean" }, new { @class = "btn btn-success" })</td>
+            <td><a href="#" class="btn btn-danger">Reject</a></td>
+            <td>@Html.ActionLink("View Application", "StudentCPTApplicationDetails", "Dashboard", new { id = application.Id, viewedBy = "Dean" }, new { @class = "btn btn-primary" })</td>
 
+        </tr>
+    }
+
+
+</table>

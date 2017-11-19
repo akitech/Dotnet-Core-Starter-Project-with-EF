@@ -14,6 +14,7 @@
         <th>Name</th>
         <th>Accept</th>
         <th>Reject</th>
+        <th>Application</th>
     </tr>
 
     @foreach (var application in Model)
@@ -23,6 +24,7 @@
             <td>@application.Student.FullName</td>
             <td>@Html.ActionLink("Accept", "Accept", "Dashboard", new { id = application.Id, signedBy = "Advisor"}, new { @class="btn btn-success"})</td>
             <td><a href="#" class="btn btn-danger">Reject</a></td>
+            <td>@Html.ActionLink("View Application", "StudentCPTApplicationDetails", "Dashboard", new { id = application.Id, viewedBy = "Advisor" }, new { @class = "btn btn-primary" })</td>
         </tr>
     }
 

@@ -1,9 +1,9 @@
 ﻿
 @model List<Internship.Models.CptApplication>
 @{
-    ViewData["Title"] = "Advisor";
+    ViewData["Title"] = "Supervisor";
 }
-<h2>Instructor </h2> <br /><br />
+<h2>Supervisor </h2> <br /><br />
 <h4>Your forms @Model.Count</h4>
 <table class="table table-striped">
     <tr>
@@ -11,7 +11,6 @@
         <th>Name</th>
         <th>Accept</th>
         <th>Reject</th>
-        <th>Application</th>
     </tr>
 
     @foreach (var application in Model)
@@ -19,9 +18,10 @@
         <tr>
             <td>@application.Student.Email</td>
             <td>@application.Student.FullName </td>
-            <td>@Html.ActionLink("Accept", "Accept", "Dashboard", new { id = @application.Id, signedBy="Instructor"}, new { @class = "btn btn-success"})</td>
+            <td>@Html.ActionLink("Accept", "Accept", "Dashboard", new { id = @application.Id, signedBy = "Supervisor" }, new { @class = "btn btn-success" })</td>
             <td><a href="#" class="btn btn-danger">Reject</a></td>
-            <td>@Html.ActionLink("View Application", "StudentCPTApplicationDetails", "Dashboard", new { id = application.Id, viewedBy = "Instructor" }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("View Application", "StudentCPTApplicationDetails", "Dashboard", new { id = application.Id, viewedBy = "Supervisor" }, new { @class = "btn btn-primary" })</td>
+
         </tr>
     }
 

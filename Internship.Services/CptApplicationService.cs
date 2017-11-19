@@ -54,6 +54,33 @@ namespace Internship.Services
         public List<CptApplication> GetInstructorApprovedForms()
         {
             return Where(app => app.IsSignedByInstructor == true)
+                .Where(app => app.IsSignedByDepartment == false)
+                .Include(app => app.Employer)
+                .Include(app => app.Student)
+                .Include(app => app.Supervisor)
+                .Include(app => app.LearningObjectives)
+                .Include(app => app.EmploymentAgreement)
+                .Include(app => app.Advisor)
+                .ToList();
+        }
+
+        public List<CptApplication> GetDepartmentApprovedForms()
+        {
+            return Where(app => app.IsSignedByDepartment == true)
+                .Where(app => app.IsSignedByDean == false)
+                .Include(app => app.Employer)
+                .Include(app => app.Student)
+                .Include(app => app.Supervisor)
+                .Include(app => app.LearningObjectives)
+                .Include(app => app.EmploymentAgreement)
+                .Include(app => app.Advisor)
+                .ToList();
+        }
+
+        public List<CptApplication> GetDeanApprovedForms()
+        {
+            return Where(app => app.IsSignedByDean == true)
+                .Where(app => app.IsSignedBySupervisorUponCompletion == false)
                 .Include(app => app.Employer)
                 .Include(app => app.Student)
                 .Include(app => app.Supervisor)

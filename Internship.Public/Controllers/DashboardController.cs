@@ -62,13 +62,20 @@ namespace Internship.Public.Controllers
             if (signedBy == "Advisor")
             {
                 application.DateSignedByAcademicAdvisor = now;
-            } else if (signedBy == "Instructor")
+            }
+            else if (signedBy == "Instructor")
             {
                 application.DateSignedByInstructor = now;
-            } else if (signedBy == "Dean")
+            }
+            else if (signedBy == "Department")
+            {
+                application.DateSignedByDepartment = now;
+            }
+            else if (signedBy == "Dean")
             {
                 application.DateSignedByDean = now;
-            } else if (signedBy == "Supervisor")
+            }
+            else if (signedBy == "Supervisor")
             {
                 application.DateSignedBySupervisorUponCompletion = now;
             }
@@ -81,7 +88,7 @@ namespace Internship.Public.Controllers
         [Authorize]
         public IActionResult Employer()
         {
-            var loggedInAdvisor = GetLoggedInUser();
+            var loggedInEmployer = GetLoggedInUser();
             var advisorForms = _cptApplicationService.GetStudentForms();
             return View(advisorForms);
         }
@@ -89,15 +96,15 @@ namespace Internship.Public.Controllers
         [Authorize]
         public IActionResult Dean()
         {
-            var loggedInAdvisor = GetLoggedInUser();
-            var advisorForms = _cptApplicationService.GetStudentForms();
-            return View(advisorForms);
+            var loggedInDean = GetLoggedInUser();
+            var departmentApprovedForms = _cptApplicationService.GetDepartmentApprovedForms();
+            return View(departmentApprovedForms);
         }
 
         [Authorize]
         public IActionResult Instructor()
         {
-            var loggedInAdvisor = GetLoggedInUser();
+            var loggedInInstructor = GetLoggedInUser();
             var advisorApprovedForms = _cptApplicationService.GetAdvisorApprovedForms();
             return View(advisorApprovedForms);
         }
@@ -105,8 +112,23 @@ namespace Internship.Public.Controllers
         [Authorize]
         public IActionResult Department()
         {
+            var loggedInDepartment = GetLoggedInUser();
             var instructorApprovedForms = _cptApplicationService.GetInstructorApprovedForms();
             return View(instructorApprovedForms);
+        }
+
+        [Authorize]
+        public IActionResult Supervisor()
+        {
+            var loggedInSupervisor = GetLoggedInUser();
+            var deanApprovedForms = _cptApplicationService.GetDeanApprovedForms();
+            return View(deanApprovedForms);
+        }
+
+        public IActionResult StudentCPTApplicationDetails(int id, string viewedBy)
+        {
+            var application = this._cptApplicationService.GetById(id);
+            return View(application);
         }
 
     }
