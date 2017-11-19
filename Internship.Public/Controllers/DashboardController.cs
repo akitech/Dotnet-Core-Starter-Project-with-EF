@@ -59,23 +59,23 @@ namespace Internship.Public.Controllers
             var now = DateTime.Now;
             var application = _cptApplicationService.Find(applicationId);
 
-            if (signedBy == "advisor")
+            if (signedBy == "Advisor")
             {
                 application.DateSignedByAcademicAdvisor = now;
-            } else if (signedBy == "instructor")
+            } else if (signedBy == "Instructor")
             {
                 application.DateSignedByInstructor = now;
-            } else if (signedBy == "dean")
+            } else if (signedBy == "Dean")
             {
                 application.DateSignedByDean = now;
-            } else if (signedBy == "supervisor")
+            } else if (signedBy == "Supervisor")
             {
                 application.DateSignedBySupervisorUponCompletion = now;
             }
-
+            
             this._cptApplicationService.Update(application);
             this._cptApplicationService.SaveChanges();
-            return RedirectToAction("Advisor", "Dashboard");
+            return RedirectToAction(signedBy,"Dashboard");
         }
 
         [Authorize]
