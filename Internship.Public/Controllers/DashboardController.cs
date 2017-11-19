@@ -54,12 +54,26 @@ namespace Internship.Public.Controllers
         }
 
         [Authorize]
-        public IActionResult AdvisorAccept(string id)
+        public IActionResult Accept(string id, string signedBy)
         {
             int applicationId = System.Int32.Parse(id);
-            //var now = DateTime.Now;
+            var now = DateTime.Now;
             var application = _cptApplicationService.Find(applicationId);
-            //application.DateSignedByAcademicAdvisor = now;
+
+            if (signedBy == "advisor")
+            {
+                application.DateSignedByAcademicAdvisor = now;
+            } else if (signedBy == "instructor")
+            {
+                application.DateSignedByInstructor = now;
+            } else if (signedBy == "dean")
+            {
+                application.DateSignedByDean = now;
+            } else if (signedBy == "supervisor")
+            {
+                application.DateSignedBySupervisorUponCompletion = now;
+            }
+
             this._cptApplicationService.Update(application);
             this._cptApplicationService.SaveChanges();
             return RedirectToAction("Advisor", "Dashboard");
@@ -85,16 +99,15 @@ namespace Internship.Public.Controllers
         public IActionResult Instructor()
         {
             var loggedInAdvisor = GetLoggedInUser();
-            var advisorForms = _cptApplicationService.GetAdvisorApprovedForms();
-            return View(advisorForms);
+            var advisorApprovedForms = _cptApplicationService.GetAdvisorApprovedForms();
+            return View(advisorApprovedForms);
         }
 
         [Authorize]
         public IActionResult Department()
         {
-            var loggedInAdvisor = GetLoggedInUser();
-            var advisorForms = _cptApplicationService.GetStudentForms();
-            return View(advisorForms);
+            var instructorApprovedForms = _cptApplicationService.GetInstructorApprovedForms();
+            return View(instructorApprovedForms);
         }
 
     }

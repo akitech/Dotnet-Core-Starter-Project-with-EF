@@ -50,6 +50,18 @@ namespace Internship.Services
                 .ToList();
         }
 
+        public List<CptApplication> GetInstructorApprovedForms()
+        {
+            return Where(app => app.IsSignedByInstructor == true)
+                .Include(app => app.Employer)
+                .Include(app => app.Student)
+                .Include(app => app.Supervisor)
+                .Include(app => app.LearningObjectives)
+                .Include(app => app.EmploymentAgreement)
+                .Include(app => app.Advisor)
+                .ToList();
+        }
+
         public List<CptApplication> GetStudentForms(int studentId)
         {
             return Where(app => app.StudentId == studentId)
