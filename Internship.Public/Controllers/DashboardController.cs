@@ -85,7 +85,7 @@ namespace Internship.Public.Controllers
         public IActionResult Instructor()
         {
             var loggedInAdvisor = GetLoggedInUser();
-            var advisorForms = _cptApplicationService.GetStudentForms();
+            var advisorForms = _cptApplicationService.GetAdvisorApprovedForms();
             return View(advisorForms);
         }
 
