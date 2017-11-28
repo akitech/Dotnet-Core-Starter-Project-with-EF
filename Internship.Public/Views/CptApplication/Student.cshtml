@@ -28,97 +28,104 @@
                     <tr><th>Concentration</th><td>@Model.Student.Concentration</td></tr>
                     <tr><th>CellPhone</th><td>@Model.Student.CellPhone</td></tr>
                     <tr><th>HomePhone</th><td>@Model.Student.HomePhone</td></tr>
-                    <tr><th>Current Address</th>
-                         <td>@Model.Student.CurrentAddress.AddressLine1 @Model.Student.CurrentAddress.AddressLine2 <br />
-                             @Model.Student.CurrentAddress.City @Model.Student.CurrentAddress.State  @Model.Student.CurrentAddress.Zip
+                    <tr>
+                        <th>Current Address</th>
+                        <td>
+                            @Model.Student.CurrentAddress.AddressLine1 @Model.Student.CurrentAddress.AddressLine2 <br />
+                            @Model.Student.CurrentAddress.City @Model.Student.CurrentAddress.State  @Model.Student.CurrentAddress.Zip
                         </td>
                     </tr>
-                    <tr><th>Permanent Address</th><td>@Model.Student.PermanentAddress.AddressLine1 @Model.Student.PermanentAddress.AddressLine2 <br />
-                         @Model.Student.PermanentAddress.City @Model.Student.PermanentAddress.State  @Model.Student.PermanentAddress.Zip</td>
+                    <tr>
+                        <th>Permanent Address</th>
+                        <td>
+                            @Model.Student.PermanentAddress.AddressLine1 @Model.Student.PermanentAddress.AddressLine2 <br />
+                            @Model.Student.PermanentAddress.City @Model.Student.PermanentAddress.State  @Model.Student.PermanentAddress.Zip
+                        </td>
                     </tr>
-                    
+
                 </table>
                 <button class="btn btn-success" data-toggle="tab" href="#employer">Looks good, continue.</button>
                 <a href="~/profile/edit" class="btn btn-danger">No, edit my info</a>
             </div>
-            <div id="employer" class="tab-pane fade well">
-                <div class="row">
-                    <div class="col-md-6">
-                        Employer:
-                        <input type="text" name="Employer.EmployersName" value="@Model.Employer.EmployersName" class="form-control" />
+
+                    <div id="employer" class="tab-pane fade well">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Employer:
+                                <input type="text" name="Employer.EmployersName" value="@Model.Employer.EmployersName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Employer Address:
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" name="Employer.EmployersAddress.AddressLine1" value="@Model.Employer.EmployersAddress.AddressLine1" class="form-control" placeholder="Street Address" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" name="Employer.EmployersAddress.Zip" value="@(Model.Employer.EmployersAddress.Zip == 0 ? string.Empty : Model.Employer.EmployersAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" name="Employer.EmployersAddress.City" value="@Model.Employer.EmployersAddress.City" class="form-control" placeholder="City" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" name="Employer.EmployersAddress.State" value="@Model.Employer.EmployersAddress.State" class="form-control" placeholder="State" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                Supervisor's Name:
+                                <input type="text" name="Supervisor.FirstName" value="@Model.Supervisor.FirstName" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                Supervisor's Email:
+                                <input type="text" name="Supervisor.Email" value="@Model.Supervisor.Email" class="form-control" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        Employer Address:
+                    <div id="job" class="tab-pane fade well">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Start Date:
+                                <input type="text" name='StartDate.ToString(" MM/dd/YYYY")' value="@Model.StartDate.ToString(" MM/dd/yyyy")" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                End Date:
+                                <input type="text" name='EndDate.ToString(" MM/dd/YYYY")' value="@Model.EndDate.ToString(" MM/dd/yyyy")" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                Job Title:
+                                <input type="text" name="EmploymentAgreement.JobTitle" value="@Model.EmploymentAgreement.JobTitle" class="form-control" />
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" name="Employer.EmployersAddress.AddressLine1" value="@Model.Employer.EmployersAddress.AddressLine1" class="form-control" placeholder="Street Address" />
+                                Job Responsibilities:
+                                <textarea class="form-control" name="EmploymentAgreement.JobResponsibilities">@Model.EmploymentAgreement.JobResponsibilities</textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" name="Employer.EmployersAddress.Zip" value="@(Model.Employer.EmployersAddress.Zip == 0 ? string.Empty : Model.Employer.EmployersAddress.Zip.ToString())" class="form-control" placeholder="Zip" />
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="Employer.EmployersAddress.City" value="@Model.Employer.EmployersAddress.City" class="form-control" placeholder="City" />
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="Employer.EmployersAddress.State" value="@Model.Employer.EmployersAddress.State" class="form-control" placeholder="State" />
-                            </div>
+
+                    </div>
+
+                    <div id="finish" class="tab-pane fade well">
+
+                        By clicking submit, you agree to the terms and conditions of electonic form submission.
+                        <div class="m-t-20">
+                            <button class="btn btn-success">Submit Form</button>
                         </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-6">
-                        Supervisor's Name:
-                        <input type="text" name="Supervisor.FirstName" value="@Model.Supervisor.FirstName" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                        Supervisor's Email:
-                        <input type="text" name="Supervisor.Email" value="@Model.Supervisor.Email" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div id="job" class="tab-pane fade well">
-                <div class="row">
-                    <div class="col-md-6">
-                        Start Date:
-                        <input type="text" name='StartDate.ToString(" MM/dd/YYYY")' value="@Model.StartDate.ToString(" MM/dd/yyyy")" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                        End Date:
-                        <input type="text" name='EndDate.ToString(" MM/dd/YYYY")' value="@Model.EndDate.ToString(" MM/dd/yyyy")" class="form-control" />
+
+
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        Job Title:
-                        <input type="text" name="EmploymentAgreement.JobTitle" value="@Model.EmploymentAgreement.JobTitle" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        Job Responsibilities:
-                        <textarea class="form-control" name="EmploymentAgreement.JobResponsibilities">@Model.EmploymentAgreement.JobResponsibilities</textarea>
-                    </div>
-                </div>
 
-            </div>
-
-            <div id="finish" class="tab-pane fade well">
-
-                By clicking submit, you agree to the terms and conditions of electonic form submission.
-                <div class="m-t-20">
-                    <button class="btn btn-success">Submit Form</button>
-                </div>
-
-
-            </div>
-        </div>
-
-
-    </form>
+</form>
 </div>

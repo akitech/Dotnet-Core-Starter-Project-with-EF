@@ -1,4 +1,5 @@
 ﻿using Internship.Models;
+using Internship.Public.Helpers;
 using Internship.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace Internship.Public
             services.AddDbContext<InternshipContext>(options => options.UseMySql(connection));
 
             // Dependency Injection:
+            services.AddTransient<IEmailProvider, EmailProvider>();
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICptApplicationService, CptApplicationService>();

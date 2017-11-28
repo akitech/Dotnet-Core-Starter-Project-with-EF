@@ -1,0 +1,19 @@
+﻿@model Internship.Models.CptApplication
+@{
+    ViewData["Title"] = "ReasonsForRejection";
+}
+<h3>Reasons For Rejection</h3>
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    <div class="text-info">
+        <div class="row">
+            <div class="col-md-10">
+                Reasons For None Approval:
+                <textarea name="ReasonsForNoneApproval" class="form-control">@Model.ReasonsForNoneApproval</textarea>
+            </div>
+        </div>
+    </div>
+    <hr class="clear" />
+    <p>Please click the following button to reject the application:</p>
+    <button class="btn btn-danger">Reject</button>
+</form>

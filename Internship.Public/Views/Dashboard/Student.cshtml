@@ -21,13 +21,20 @@
             <th>CPT Period</th>
             <th>Advisor</th>
             <th>Employer</th>
-            <th></th>
+            
         </tr>
 
-        @foreach(var form in Model)
+        @foreach (var form in Model)
         {
             <tr class="@(form.IsRejected ? "danger" : "") @(form.IsApproved ? "success" : "") ">
-                <td>@form.CurrentApplicationStatus </td>
+                <td>
+                    @form.CurrentApplicationStatus
+                    @if (form.IsRejected)
+                    {
+                        <br /><strong>Reason: </strong>
+                        @form.ReasonsForNoneApproval
+                    }
+                </td>
                 <td>@form.StartDate.ToString("MM/dd/yyyy") - @form.EndDate.ToString("MM/dd/yyyy")</td>
                 <td>@(form.Advisor == null ? "" : form.Advisor.FullName)</td>
                 <td>@form.Employer.EmployersName</td>

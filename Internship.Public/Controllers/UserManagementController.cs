@@ -28,6 +28,8 @@ namespace Internship.Public.Controllers
         public IActionResult Add()
         {
             var user = new User();
+            user.CurrentAddress = new Address();
+            user.PermanentAddress = new Address();
             return View("Edit", user);
         }
 
@@ -35,7 +37,16 @@ namespace Internship.Public.Controllers
         public IActionResult Edit(int id)
         {
             var user = _userService.Find(id);
-           return View(user);
+            return View(user);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var user = _userService.Find(id);
+            _userService.Delete(user);
+            SetTemporaryMessage("The user has been deleted.");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
