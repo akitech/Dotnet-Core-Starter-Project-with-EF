@@ -10,23 +10,24 @@ namespace Internship.Models
     }
     public enum ApplicationStep
     {
-        Student = 1,
-        Instructor = 2,
-        [Description("Academinc Advisor")]
-        AcademicAdvisor = 3,
+        Student = 1,       
+        [Description("Academic Advisor")]
+        AcademicAdvisor = 2,
+        Instructor = 3,
         Department = 4,
         Dean = 5,
-        Supervisor = 5
+        Supervisor = 6,
+        IsApproved = 7
     }
     public enum UserType
     {
         Student = 1,
         Instructor = 2,
-        [Description("Academinc Advisor")]
+        [Description("Academic Advisor")]
         AcademicAdvisor = 3,
         Department = 4,
         Dean = 5,
-        Supervisor = 5
+        Supervisor = 6 
     }
     public enum SalaryType
     {

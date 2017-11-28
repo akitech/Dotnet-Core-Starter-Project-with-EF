@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Views\EmailTemplates\Approval Email.html" />
     <Content Include="Views\EmailTemplates\activate.html" />
   </ItemGroup>
   <ItemGroup>
